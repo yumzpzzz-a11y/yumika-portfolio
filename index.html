@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YUMIKA — Visual Artist / Experience Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #111;
+  --mid: #888;
+  --light: #d0d0cc;
+  --lighter: #e8e8e4;
+  --bg: #fff;
+  --bg2: #fafaf8;
+}
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--black);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ── */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.6rem 3rem;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 0.5px solid transparent;
+  transition: border-color 0.3s;
+}
+header.scrolled { border-color: var(--light); }
+.logo {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem; letter-spacing: 0.06em;
+  color: var(--black); text-decoration: none; cursor: pointer;
+}
+nav { display: flex; gap: 2.5rem; }
+nav a {
+  font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--mid); text-decoration: none; cursor: pointer;
+  transition: color 0.2s; position: relative; padding-bottom: 2px;
+}
+nav a::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 0.5px; background: var(--black);
+  transform: scaleX(0); transition: transform 0.2s;
+}
+nav a.active { color: var(--black); }
+nav a.active::after { transform: scaleX(1); }
+nav a:hover { color: var(--black); }
+
+/* ── PAGE SYSTEM ── */
+#app { padding-top: 72px; min-height: 100vh; }
+.page { display: none; animation: fadeIn 0.35s ease; }
+.page.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── HOME ── */
+#page-home {
+  min-height: calc(100vh - 72px);
+  display: flex; align-items: flex-end;
+  padding: 0 3rem 5rem;
+}
+.hero-eyebrow {
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--mid); margin-bottom: 1.5rem;
+}
+h1 {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 400; line-height: 1.05; letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+}
+h1 em { font-style: italic; color: var(--mid); }
+.hero-desc {
+  font-size: 0.85rem; color: var(--mid); line-height: 2;
+  max-width: 400px; margin-bottom: 2.5rem;
+}
+.hero-cta {
+  display: inline-block; font-size: 0.7rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--black); cursor: pointer;
+  border-bottom: 0.5px solid var(--black); padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit;
+}
+.hero-cta:hover { color: var(--mid); border-color: var(--mid); }
+
+/* ── SECTION COMMON ── */
+.page-inner { padding: 3.5rem 3rem 6rem; }
+.page-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 2rem; font-weight: 400; margin-bottom: 0.5rem;
+}
+.page-title em { font-style: italic; color: var(--mid); }
+.page-sub { font-size: 0.78rem; color: var(--mid); margin-bottom: 3rem; }
+
+/* ── WORKS TABS ── */
+.works-tabs {
+  display: flex; gap: 0;
+  border-bottom: 0.5px solid var(--light);
+  margin-bottom: 3rem;
+}
+.wtab {
+  font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--mid); cursor: pointer; padding: 0.75rem 1.5rem 0.75rem 0;
+  border-bottom: 1px solid transparent; margin-bottom: -0.5px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.wtab.active { color: var(--black); border-color: var(--black); }
+.wtab:hover { color: var(--black); }
+.works-panel { display: none; }
+.works-panel.active { display: block; }
+
+/* ── WORKS GRID ── */
+.works-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 0.5px solid var(--light);
+  border-left: 0.5px solid var(--light);
+}
+.work-item {
+  border-right: 0.5px solid var(--light);
+  border-bottom: 0.5px solid var(--light);
+  cursor: pointer; transition: background 0.2s;
+}
+.work-item:hover { background: var(--bg2); }
+.work-thumb {
+  aspect-ratio: 4/3; position: relative; overflow: hidden;
+  background: #f0efeb;
+}
+/* サムネイル画像を入れるときは↓のimgタグを使ってください */
+.work-thumb img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block; transition: transform 0.4s ease;
+}
+.work-item:hover .work-thumb img { transform: scale(1.03); }
+.thumb-ph {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(0,0,0,0.18);
+}
+.lock-badge {
+  position: absolute; top: 0.75rem; right: 0.75rem;
+  width: 26px; height: 26px; background: rgba(255,255,255,0.9);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem;
+}
+.work-meta { padding: 1.1rem 1.3rem 1.6rem; }
+.work-year { font-size: 0.6rem; letter-spacing: 0.1em; color: var(--light); margin-bottom: 0.4rem; }
+.work-title { font-size: 0.8rem; line-height: 1.55; font-weight: 400; }
+.work-cat { font-size: 0.63rem; color: var(--mid); margin-top: 0.3rem; }
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start;
+}
+.about-photo {
+  aspect-ratio: 3/4; background: #f0efeb;
+  position: relative; overflow: hidden;
+}
+.about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-photo-label {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(0,0,0,0.2);
+}
+.about-text h2 {
+  font-family: 'EB Garamond', serif; font-size: 1.8rem; font-weight: 400;
+  line-height: 1.4; margin-bottom: 1.8rem;
+}
+.about-text p {
+  font-size: 0.83rem; color: #555; line-height: 2.1; margin-bottom: 1.2rem;
+}
+.career-block {
+  margin-top: 2.5rem; padding-top: 2.5rem;
+  border-top: 0.5px solid var(--lighter);
+}
+.career-label {
+  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--mid); margin-bottom: 1.2rem;
+}
+.career-item {
+  display: flex; gap: 2rem; padding: 0.85rem 0;
+  border-bottom: 0.5px solid var(--lighter); font-size: 0.78rem;
+}
+.career-period { color: var(--mid); white-space: nowrap; min-width: 120px; flex-shrink: 0; }
+.career-role { color: var(--black); line-height: 1.7; }
+
+/* ── SKILLS ── */
+.skills-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 6rem; }
+.skill-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding: 1rem 0; border-bottom: 0.5px solid var(--lighter);
+}
+.sk-name { font-size: 0.82rem; }
+.sk-lvl { font-family: 'EB Garamond', serif; font-size: 0.78rem; color: var(--mid); font-style: italic; }
+.skills-note {
+  margin-top: 3rem; padding-top: 2rem; border-top: 0.5px solid var(--lighter);
+}
+.skills-note-label {
+  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--mid); margin-bottom: 1rem;
+}
+.skills-note p { font-size: 0.8rem; color: #555; line-height: 2; }
+
+/* ── CONTACT ── */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.contact-lead {
+  font-family: 'EB Garamond', serif; font-size: 1.9rem; font-weight: 400;
+  line-height: 1.4; margin-bottom: 2rem;
+}
+.contact-lead em { font-style: italic; color: var(--mid); }
+.cinfo { display: flex; flex-direction: column; gap: 0; }
+.cline {
+  display: flex; align-items: baseline; gap: 1.5rem;
+  padding: 0.9rem 0; border-bottom: 0.5px solid var(--lighter);
+}
+.ck { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light); width: 60px; flex-shrink: 0; }
+.cv { font-size: 0.82rem; }
+.cv a { color: var(--black); text-decoration: none; border-bottom: 0.5px solid var(--lighter); transition: border-color 0.2s; }
+.cv a:hover { border-color: var(--black); }
+.cf label { display: block; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
+.cf input, .cf textarea {
+  width: 100%; background: transparent; border: none; border-bottom: 0.5px solid var(--lighter);
+  padding: 0.55rem 0; font-family: 'Noto Sans JP', sans-serif; font-size: 0.83rem;
+  font-weight: 300; color: var(--black); outline: none; margin-bottom: 1.8rem; display: block;
+  transition: border-color 0.2s;
+}
+.cf input:focus, .cf textarea:focus { border-color: var(--black); }
+.cf textarea { resize: none; height: 90px; }
+.cf button {
+  background: none; border: none; border-bottom: 0.5px solid var(--black);
+  padding-bottom: 2px; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+  cursor: pointer; font-family: inherit; transition: color 0.2s;
+}
+.cf button:hover { color: var(--mid); }
+
+/* ── LOCK OVERLAY ── */
+.locked-overlay {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+  align-items: center; justify-content: center;
+}
+.locked-overlay.show { display: flex; }
+.lock-modal {
+  text-align: center; padding: 3rem;
+  border: 0.5px solid var(--light); background: white; max-width: 340px; width: 90%;
+}
+.lock-icon { font-size: 1.5rem; margin-bottom: 1.5rem; }
+.lock-modal h3 {
+  font-family: 'EB Garamond', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 0.5rem;
+}
+.lock-modal p { font-size: 0.78rem; color: var(--mid); line-height: 1.8; margin-bottom: 2rem; }
+.lock-input {
+  width: 100%; border: none; border-bottom: 0.5px solid var(--light);
+  padding: 0.6rem 0; font-size: 0.85rem; font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300; outline: none; text-align: center; letter-spacing: 0.3em;
+  transition: border-color 0.2s; background: transparent;
+}
+.lock-input:focus { border-color: var(--black); }
+.lock-btn {
+  margin-top: 1.5rem; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+  cursor: pointer; background: none; border: none; border-bottom: 0.5px solid var(--black);
+  padding-bottom: 2px; font-family: inherit; transition: color 0.2s;
+  display: block; margin-left: auto; margin-right: auto;
+}
+.lock-btn:hover { color: var(--mid); }
+.lock-error { font-size: 0.7rem; color: #c00; margin-top: 0.75rem; display: none; }
+.lock-close { margin-top: 1.5rem; font-size: 0.65rem; color: var(--mid); cursor: pointer; display: block; letter-spacing: 0.1em; }
+.lock-close:hover { color: var(--black); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 0.5px solid var(--light); padding: 2rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.fcopy { font-size: 0.68rem; color: var(--light); letter-spacing: 0.06em; }
+.flinks { display: flex; gap: 2rem; }
+.flinks a {
+  font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--mid); text-decoration: none; transition: color 0.2s;
+}
+.flinks a:hover { color: var(--black); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  header { padding: 1.2rem 1.5rem; }
+  .page-inner { padding: 2.5rem 1.5rem 5rem; }
+  #page-home { padding: 0 1.5rem 4rem; }
+  nav { gap: 1.5rem; }
+  .works-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .skills-2col { grid-template-columns: 1fr; gap: 0; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  footer { padding: 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+  .career-item { flex-direction: column; gap: 0.3rem; }
+  .career-period { min-width: unset; }
+}
+@media (max-width: 480px) {
+  h1 { font-size: 2.8rem; }
+  .works-grid { grid-template-columns: 1fr; }
+  nav a { font-size: 0.6rem; letter-spacing: 0.08em; }
+  nav { gap: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ HEADER ══════════════════ -->
+<header id="site-header">
+  <span class="logo" onclick="navigate('home')">YUMIKA</span>
+  <nav>
+    <a onclick="navigate('works')" data-page="works">Works</a>
+    <a onclick="navigate('about')" data-page="about">About</a>
+    <a onclick="navigate('skills')" data-page="skills">Skills</a>
+    <a onclick="navigate('contact')" data-page="contact">Contact</a>
+  </nav>
+</header>
+
+<div id="app">
+
+  <!-- ══════════════════ HOME ══════════════════ -->
+  <div class="page active" id="page-home">
+    <div style="min-height:calc(100vh - 72px);display:flex;align-items:flex-end;padding:0 3rem 5rem;">
+      <div>
+        <p class="hero-eyebrow">Visual Artist · Experience Designer · Tokyo</p>
+        <h1>Creating<br><em>digital</em><br>experiences.</h1>
+        <p class="hero-desc">
+          現実の枠組みを超えた、誰もが魅了されるデジタル・エンターテイメントの創造を軸に、体験設計に併せた多様な世界観を具現化する。
+        </p>
+        <button class="hero-cta" onclick="navigate('works')">View Works →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ WORKS ══════════════════ -->
+  <div class="page" id="page-works">
+    <div class="page-inner">
+      <h2 class="page-title">Selected <em>Works</em></h2>
+      <p class="page-sub">3D CG · Motion · AR · Installation · Film</p>
+
+      <div class="works-tabs">
+        <div class="wtab active" onclick="switchTab('public', this)">Public</div>
+        <div class="wtab" onclick="switchTab('private', this)">Private &nbsp;🔒</div>
+      </div>
+
+      <!-- PUBLIC WORKS -->
+      <div class="works-panel active" id="tab-public">
+        <div class="works-grid">
+
+          <div class="work-item">
+            <div class="work-thumb">
+              <!-- 画像を入れるとき: <img src="images/work1.jpg" alt="プロジェクト名"> -->
+              <div class="thumb-ph">image</div>
+            </div>
+            <div class="work-meta">
+              <div class="work-year">2025</div>
+              <div class="work-title">Project Title</div>
+              <div class="work-cat">3D CG · Installation</div>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <div class="work-thumb">
+              <div class="thumb-ph">image</div>
+            </div>
+            <div class="work-meta">
+              <div class="work-year">2024</div>
+              <div class="work-title">Project Title</div>
+              <div class="work-cat">Motion Design · VFX</div>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <div class="work-thumb">
+              <div class="thumb-ph">image</div>
+            </div>
+            <div class="work-meta">
+              <div class="work-year">2024</div>
+              <div class="work-title">Project Title</div>
+              <div class="work-cat">AR · Brand Campaign</div>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <div class="work-thumb">
+              <div class="thumb-ph">image</div>
+            </div>
+            <div class="work-meta">
+              <div class="work-year">2023</div>
+              <div class="work-title">Project Title</div>
+              <div class="work-cat">MV Direction · CG</div>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <div class="work-thumb">
+              <div class="thumb-ph">image</div>
+            </div>
+            <div class="work-meta">
+              <div class="work-year">2023</div>
+              <div class="work-title">Project Title</div>
+              <div class="work-cat">Highend CG · Commercial</div>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <div class="work-thumb">
+              <div class="thumb-ph">image</div>
+            </div>
+            <div class="work-meta">
+              <div class="work-year">2022</div>
+              <div class="work-title">Project Title</div>
+              <div class="work-cat">Live Visual · CG</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PRIVATE WORKS -->
+      <div class="works-panel" id="tab-private">
+        <div class="works-grid">
+
+          <div class="work-item" onclick="openLock()">
+            <div class="work-thumb" style="position:relative;">
+              <div class="thumb-ph">image</div>
+              <div class="lock-badge">🔒</div>
+            </div>
+            <div class="work-meta">
+              <div class="work-year">2025</div>
+              <div class="work-title">Confidential Project</div>
+              <div class="work-cat">NDA · 3D CG</div>
+            </div>
+          </div>
+
+          <div class="work-item" onclick="openLock()">
+            <div class="work-thumb" style="position:relative;">
+              <div class="thumb-ph">image</div>
+              <div class="lock-badge">🔒</div>
+            </div>
+            <div class="work-meta">
+              <div class="work-year">2024</div>
+              <div class="work-title">Confidential Project</div>
+              <div class="work-cat">NDA · Installation</div>
+            </div>
+          </div>
+
+          <div class="work-item" onclick="openLock()">
+            <div class="work-thumb" style="position:relative;">
+              <div class="thumb-ph">image</div>
+              <div class="lock-badge">🔒</div>
+            </div>
+            <div class="work-meta">
+              <div class="work-year">2024</div>
+              <div class="work-title">Confidential Project</div>
+              <div class="work-cat">NDA · Motion</div>
+            </div>
+          </div>
+
+        </div>
+        <p style="font-size:0.72rem;color:var(--mid);margin-top:2rem;letter-spacing:0.04em;line-height:1.9;">
+          NDA対象プロジェクトはパスワードでご覧いただけます。<br>
+          お問い合わせの上、パスワードをお受け取りください。
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════ ABOUT ══════════════════ -->
+  <div class="page" id="page-about">
+    <div class="page-inner">
+      <h2 class="page-title">About <em>Me</em></h2>
+      <p class="page-sub">Visual Artist / Experience Designer based in Tokyo</p>
+
+      <div class="about-grid">
+        <div class="about-photo">
+          <!-- 写真を入れるとき: <img src="images/profile.jpg" alt="YUMIKA"> -->
+          <div class="about-photo-label">Photo</div>
+        </div>
+        <div class="about-text">
+          <h2>現実の枠組みを超えた<br>デジタル体験の創造</h2>
+          <p>
+            大学では経営学を学び、並行して専門学校にて3DCGを学ぶ。在学中、映像制作会社にてMVやライブ映像の企画立案・CG制作などを担当したのち、NAKED、MARKでのインスタレーション・ハイエンドCG制作経験を経て、2024年stu参画。
+          </p>
+          <p>
+            2019年からYUMIKA名義でも活動し、MVの監督を担当。現実の枠組みを超えた、誰もが魅了されるデジタル・エンターテイメントの創造を軸に、体験設計に併せた多様な世界観を具現化する事を得意とする。
+          </p>
+
+          <div class="career-block">
+            <p class="career-label">Career</p>
+            <div class="career-item">
+              <span class="career-period">2020.04 — 2021.10</span>
+              <span class="career-role">NAKED, inc. — CGデザイナー</span>
+            </div>
+            <div class="career-item">
+              <span class="career-period">2022.05 — 2024.03</span>
+              <span class="career-role">MARK inc. — CGデザイナー</span>
+            </div>
+            <div class="career-item">
+              <span class="career-period">2024.10 — 現在</span>
+              <span class="career-role">stu inc. — Visual Artist / Experience Designer</span>
+            </div>
+            <div class="career-item">
+              <span class="career-period">2019 — 現在</span>
+              <span class="career-role">小戸森ユミカ / YUMIKA 名義にてディレクターとして活動</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════ SKILLS ══════════════════ -->
+  <div class="page" id="page-skills">
+    <div class="page-inner">
+      <h2 class="page-title">Skills &amp; <em>Tools</em></h2>
+      <p class="page-sub">使用ツール・専門領域</p>
+
+      <div class="skills-2col">
+        <div>
+          <div class="skill-row">
+            <span class="sk-name">Cinema 4D</span>
+            <span class="sk-lvl">Expert</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-name">Redshift / Octane</span>
+            <span class="sk-lvl">Expert</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-name">X-Particles</span>
+            <span class="sk-lvl">Advanced</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-name">Unreal Engine</span>
+            <span class="sk-lvl">Advanced</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-row">
+            <span class="sk-name">3D CG · ハイエンドレンダリング</span>
+            <span class="sk-lvl">Expert</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-name">インスタレーション制作</span>
+            <span class="sk-lvl">Advanced</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-name">MV制作 · 映像ディレクション</span>
+            <span class="sk-lvl">Advanced</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-name">体験設計 · コンセプトメイク</span>
+            <span class="sk-lvl">Advanced</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-note">
+        <p class="skills-note-label">Also</p>
+        <p>After Effects / Premiere Pro / Adobe Creative Suite<br>
+        企画立案 · クライアントディレクション · 進行管理</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════ CONTACT ══════════════════ -->
+  <div class="page" id="page-contact">
+    <div class="page-inner">
+      <h2 class="page-title">Get in <em>Touch</em></h2>
+      <p class="page-sub">お仕事のご相談・コラボレーションのお問い合わせ</p>
+
+      <div class="contact-grid">
+        <div>
+          <p class="contact-lead">新しいプロジェクトの<br>ご相談は<em>お気軽に。</em></p>
+          <div class="cinfo">
+            <div class="cline">
+              <span class="ck">Base</span>
+              <span class="cv">Tokyo, Japan</span>
+            </div>
+            <div class="cline">
+              <span class="ck">SNS</span>
+              <span class="cv">
+                <a href="https://twitter.com/yumika_zzzp" target="_blank">Twitter @yumika_zzzp</a>
+                &nbsp;/&nbsp;
+                <a href="https://instagram.com/yumika_zzzp" target="_blank">Instagram @yumika_zzzp</a>
+              </span>
+            </div>
+            <div class="cline">
+              <span class="ck">Also</span>
+              <span class="cv">小戸森ユミカ / YUMIKA 名義でも活動中</span>
+            </div>
+          </div>
+        </div>
+        <form class="cf" onsubmit="handleSubmit(event)">
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Your Name" required>
+          <label>Email</label>
+          <input type="email" name="email" placeholder="mail@example.com" required>
+          <label>Message</label>
+          <textarea name="message" placeholder="プロジェクトの概要、ご要望など…" required></textarea>
+          <button type="submit">Send Message →</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /#app -->
+
+<!-- ══════════════════ LOCK OVERLAY ══════════════════ -->
+<div class="locked-overlay" id="lock-overlay">
+  <div class="lock-modal">
+    <div class="lock-icon">🔒</div>
+    <h3>Password Required</h3>
+    <p>このプロジェクトはNDA対象です。<br>パスワードをお持ちの方のみご覧いただけます。<br>ご希望の方はContactよりお問い合わせください。</p>
+    <input
+      class="lock-input"
+      type="password"
+      id="lock-pw"
+      placeholder="· · · · · ·"
+      onkeydown="if(event.key==='Enter') checkPass()"
+    >
+    <div class="lock-error" id="lock-err">パスワードが正しくありません</div>
+    <button class="lock-btn" onclick="checkPass()">Enter →</button>
+    <span class="lock-close" onclick="closeLock()">Close</span>
+  </div>
+</div>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <span class="fcopy">© 2025 YUMIKA. All rights reserved.</span>
+  <div class="flinks">
+    <a href="https://twitter.com/yumika_zzzp" target="_blank">Twitter</a>
+    <a href="https://instagram.com/yumika_zzzp" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+<!-- ══════════════════ JAVASCRIPT ══════════════════ -->
+<script>
+  // ─── ページ切り替え ───
+  function navigate(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    const target = document.getElementById('page-' + page);
+    if (target) target.classList.add('active');
+    const link = document.querySelector('nav a[data-page="' + page + '"]');
+    if (link) link.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ─── Works タブ ───
+  function switchTab(tab, el) {
+    document.querySelectorAll('.wtab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.works-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    el.classList.add('active');
+  }
+
+  // ─── パスワードロック ───
+  // ★ ここのパスワードを自分の好きな文字列に変えてください ★
+  var SITE_PASSWORD = 'yumika2025';
+
+  function openLock() {
+    document.getElementById('lock-overlay').classList.add('show');
+    document.getElementById('lock-pw').value = '';
+    document.getElementById('lock-err').style.display = 'none';
+    setTimeout(function() { document.getElementById('lock-pw').focus(); }, 100);
+  }
+  function closeLock() {
+    document.getElementById('lock-overlay').classList.remove('show');
+  }
+  function checkPass() {
+    var pw = document.getElementById('lock-pw').value;
+    if (pw === SITE_PASSWORD) {
+      closeLock();
+      // ここにパスワード解除後の処理を書く（例: 別ページへ飛ばすなど）
+      alert('認証されました。\nお問い合わせいただきありがとうございます。');
+    } else {
+      document.getElementById('lock-err').style.display = 'block';
+      document.getElementById('lock-pw').value = '';
+      document.getElementById('lock-pw').focus();
+    }
+  }
+
+  // ─── オーバーレイ外クリックで閉じる ───
+  document.getElementById('lock-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeLock();
+  });
+
+  // ─── ヘッダーのスクロール影 ───
+  window.addEventListener('scroll', function() {
+    document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // ─── コンタクトフォーム（Formspreeを使う場合は下を書き換える） ───
+  function handleSubmit(e) {
+    e.preventDefault();
+    // Formspree等のサービスと連携するにはここを編集します
+    // 詳しくは formspree.io を参照
+    alert('送信機能は別途設定が必要です。\nREADME.txtをご確認ください。');
+  }
+</script>
+</body>
+</html>
