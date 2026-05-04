@@ -174,9 +174,16 @@ header {
   z-index: 200;
   background: var(--bg);
   display: flex;
-  align-items: center; 
-  padding: 0 2.5rem;
-  height: 52px;
+  justify-content: space-between;
+  align-items: center;
+  
+  /* ▼ ここを修正：上下に 20px、左右に 2.5rem の余白を作る */
+  padding: 20px 2.5rem; 
+  
+  /* ▼ ここを修正：高さを「固定(52px)」から「中身に合わせる(auto)」に変える */
+  height: auto; 
+  
+  width: 100%;
 }
 
 .logo {
