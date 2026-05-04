@@ -190,6 +190,8 @@ nav a:hover, nav a.active{ color:var(--acc); }
 
 /* ── PAGE SYSTEM ── */
 #app{position:fixed;inset:0;top:52px;}
+.page{ position:absolute; inset:0; overflow-y:auto; overflow-x:hidden; opacity:0; pointer-events:none; visibility:hidden; transition:opacity .05s; }
+.page.active{ opacity:1; pointer-events:all; visibility:visible; }
 
 .page{
   position:absolute;inset:0;
