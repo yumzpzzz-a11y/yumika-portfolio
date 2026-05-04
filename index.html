@@ -372,20 +372,19 @@ nav a:hover,nav a.active{color:var(--acc);}
 
 /* 3-column grid — no border lines, gap 50px */
 .works-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: grid !important;
+  /* 1. 画像の横幅を 380px → 420px くらいに大きくします */
+  grid-template-columns: repeat(3, 420px) !important;
   
-  /* 1. 隙間（gap）を 50px から半分（25px）にします */
-  gap: 25px; 
+  /* 2. 隙間は 25px のままで OK（密度が生まれます） */
+  gap: 25px !important; 
   
-  /* 2. 画像サイズを変えず中央に寄せるため、グリッド全体の最大幅を制限します */
-  max-width: 1200px; 
-  
-  /* 3. 制限した幅を中央に配置します */
-  margin: 0 auto; 
-  
-  padding: 50px;
+  justify-content: center !important; 
+  margin: 0 auto !important;
+  padding: 50px 0 !important;
+  width: 100% !important;
 }
+
 .wg-item{
   cursor:none;
   position:relative;
