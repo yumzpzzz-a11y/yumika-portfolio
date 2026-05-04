@@ -362,17 +362,22 @@ nav a:hover,nav a.active{color:var(--acc);}
   background: var(--bg);
   border-bottom: .5px solid var(--line);
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* 1. 中身を中央に寄せる */
   align-items: center;
-
-  /* ▼ ここを追加：ヘッダーと同じ幅に設定して中央に寄せます */
-  max-width: 1200px; /* 画像列の幅に合わせる */
-  margin: 0 auto;    /* 中央寄せ */
-  padding: 0;        /* 左右の余白をリセットして端を揃える */
-  
   height: 46px;
   width: 100%;
 }
+
+/* 2. もし既存のコードになければ、以下を追加してください */
+.works-toolbar > * {
+  /* Toolbarの中身（ラベルとフィルタ）を最大幅 1180px の中に収める */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px; 
+  padding: 0;
+}
+
 .wt-label{font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;}
 .wt-filters{display:flex;gap:2rem;}
 .wf{
