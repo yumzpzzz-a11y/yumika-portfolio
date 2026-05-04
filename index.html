@@ -373,15 +373,15 @@ nav a:hover,nav a.active{color:var(--acc);}
 /* 3-column grid — no border lines, gap 50px */
 .works-grid {
   display: grid !important;
-  /* 1. 画像の横幅を 380px → 420px くらいに大きくします */
-  grid-template-columns: repeat(3, 420px) !important;
+  /* 画像の横幅を 460px にアップ（これで左右の空きすぎが解消されます） */
+  grid-template-columns: repeat(3, 460px) !important;
   
-  /* 2. 隙間は 25px のままで OK（密度が生まれます） */
-  gap: 25px !important; 
+  /* 画像同士の隙間は 24px 前後が一番美しく見えます */
+  gap: 24px !important; 
   
   justify-content: center !important; 
   margin: 0 auto !important;
-  padding: 50px 0 !important;
+  padding: 40px 0 !important;
   width: 100% !important;
 }
 
