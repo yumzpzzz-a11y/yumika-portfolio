@@ -941,12 +941,15 @@ nav a:hover,nav a.active{color:var(--acc);}
 <div class="page" id="page-works">
 
   <div class="works-toolbar">
+  <div style="display: flex; justify-content: space-between; width: 100%; max-width: 1180px; margin: 0 auto; padding: 0;">
     <span class="wt-label">Selected Work</span>
     <div class="wt-filters">
       <span class="wf active" onclick="filterW(this,'all')">All</span>
       <span class="wf" onclick="filterW(this,'public')">Public</span>
       <span class="wf" onclick="filterW(this,'nda')">NDA</span>
     </div>
+  </div>
+</div>
   </div>
 
   <div class="works-grid" id="works-grid">
