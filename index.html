@@ -355,29 +355,13 @@ nav a:hover,nav a.active{color:var(--acc);}
 ═══════════════════════════ */
 #page-works{background:var(--bg);}
 
-.works-toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: var(--bg);
-  border-bottom: .5px solid var(--line);
-  display: flex;
-  justify-content: center; /* 1. 中身を中央に寄せる */
-  align-items: center;
-  height: 46px;
-  width: 100%;
+.works-toolbar{
+  position:sticky;top:0;z-index:10;
+  background:var(--bg);
+  border-bottom:.5px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 2.5rem;height:46px;
 }
-
-/* 2. もし既存のコードになければ、以下を追加してください */
-.works-toolbar > * {
-  /* Toolbarの中身（ラベルとフィルタ）を最大幅 1180px の中に収める */
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1180px; 
-  padding: 0;
-}
-
 .wt-label{font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;}
 .wt-filters{display:flex;gap:2rem;}
 .wf{
@@ -389,18 +373,21 @@ nav a:hover,nav a.active{color:var(--acc);}
 /* 3-column grid — no border lines, gap 50px */
 .works-grid {
   display: grid !important;
-  /* 1. カラム数を「4」に変更し、1つあたりの幅を少し小さめ（320px前後）に設定します */
-  grid-template-columns: repeat(4, 320px) !important;
+  /* 1. 4列を強制し、1枚あたりの幅を少し抑える(280px)のがコツです */
+  grid-template-columns: repeat(4, 280px) !important;
   
-  /* 2. 4枚並びなので、隙間は少しタイトな 20px くらいが綺麗です */
+  /* 2. 隙間を 20px に設定 */
   gap: 20px !important; 
   
+  /* 3. 全体を中央に寄せ、左右の余白を自動調整 */
   justify-content: center !important; 
   margin: 0 auto !important;
-  padding: 50px 0 !important;
+  
+  /* 4. 横幅の制限をなくし、画面いっぱいに使えるようにします */
+  max-width: none !important;
   width: 100% !important;
+  padding: 50px 2.5rem !important;
 }
-
 .wg-item{
   cursor:none;
   position:relative;
@@ -875,15 +862,13 @@ nav a:hover,nav a.active{color:var(--acc);}
 </div>
 
 <!-- ══ HEADER ══ -->
-<header style="position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: var(--bg); height: auto; margin-top: 20px;">
-  <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1180px; margin: 0 auto; padding: 20px 0;">
-    <span class="logo" onclick="goTo('top')" style="cursor:none;">YUMIKA</span>
-    <nav style="display: flex; gap: 2.2rem; align-items: center;">
-      <a onclick="goTo('works')" data-p="works">Work</a>
-      <a onclick="goTo('about')" data-p="about">About</a>
-      <a onclick="goTo('contact')" data-p="contact">Contact</a>
-    </nav>
-  </div>
+<header style="display: flex !important; justify-content: space-between !important; width: 100% !important; padding: 20px 2.5rem 0 !important; margin-top: 20px !important; height: auto !important;">
+  <span class="logo" onclick="goTo('top')" style="cursor:none;">YUMIKA</span>
+  <nav>
+    <a onclick="goTo('works')" data-p="works">Work</a>
+    <a onclick="goTo('about')" data-p="about">About</a>
+    <a onclick="goTo('contact')" data-p="contact">Contact</a>
+  </nav>
 </header>
 
 <div id="app">
@@ -943,7 +928,6 @@ nav a:hover,nav a.active{color:var(--acc);}
 <div class="page" id="page-works">
 
   <div class="works-toolbar">
-  <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1180px; margin: 0 auto; padding: 0;">
     <span class="wt-label">Selected Work</span>
     <div class="wt-filters">
       <span class="wf active" onclick="filterW(this,'all')">All</span>
@@ -951,7 +935,7 @@ nav a:hover,nav a.active{color:var(--acc);}
       <span class="wf" onclick="filterW(this,'nda')">NDA</span>
     </div>
   </div>
-</div>
+
   <div class="works-grid" id="works-grid">
 
     <!-- 01 -->
