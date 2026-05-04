@@ -161,6 +161,8 @@ body.ch #ring{width:36px;height:36px;border-color:rgba(5,40,242,.25);}
   from{ transform:scaleX(1); }
   to  { transform:scaleX(0); }
 }
+  to  { transform:scaleX(0); }
+}
 
 /* ── HEADER ── */
 header{
@@ -1259,8 +1261,6 @@ nav a:hover,nav a.active{color:var(--acc);}
   </div>
 </div><!-- /page-contact -->
 
-</div><!-- /#app -->
-
 <!-- ═══════════════════════════════════════
      PROJECT DETAIL PAGE
 ═══════════════════════════════════════ -->
@@ -1331,6 +1331,8 @@ nav a:hover,nav a.active{color:var(--acc);}
     </div>
   </div>
 </div><!-- /page-detail -->
+
+</div><!-- /#app -->
 
 <!-- ── LOCK MODAL ── -->
 <div class="lock-overlay" id="lock-overlay">
@@ -1442,7 +1444,6 @@ function goTo(p){
     });
     current=p;
     triggerReveal(to);
-    injectBgStars();
 
     // 3. Strips slide OUT (reverse stagger)
     wipe.classList.remove('in');
@@ -1461,7 +1462,7 @@ function triggerReveal(container){
     setTimeout(function(){el.classList.add('in');},10);
   });
 }
-setTimeout(function(){triggerReveal(document.getElementById('page-top'));injectBgStars();},60);
+setTimeout(function(){triggerReveal(document.getElementById('page-top'));},60);
 
 // ── PROJECT DATA ──
 var PROJECTS = {
