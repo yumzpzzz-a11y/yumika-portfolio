@@ -786,38 +786,21 @@ nav a:hover, nav a.active{ color:var(--acc); }
 .d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
 /* ── RESPONSIVE ── */
-@media(max-width:1024px){
-  .works-grid{grid-template-columns:repeat(2,1fr);gap:30px;padding:30px;}
-  .about-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:240px 240px;}
-  .am-span{grid-row:span 1;grid-column:span 2;}
-}
-@media(max-width:768px){
-  .top-hero-text{flex-direction:column;align-items:flex-start;gap:1.5rem;}
-  .tht-right{margin-left:0;text-align:left;}
-  .works-grid{grid-template-columns:repeat(2,1fr);gap:24px;padding:24px;}
-  .about-body{grid-template-columns:1fr;}
-  .ab-col:first-child{border-right:none;border-bottom:.5px solid var(--line);}
-  .contact-top{grid-template-columns:1fr;}
-  .ct-left{border-right:none;border-bottom:.5px solid var(--line);}
-  .sk-g{grid-template-columns:1fr;}
-  .about-mosaic{grid-template-columns:1fr 1fr;}
-}
 @media(max-width:480px){
-  .works-grid{grid-template-columns:1fr;gap:20px;padding:20px;}
-  nav{gap:1.2rem;margin-left:auto;}
-  .top-h1{font-size:2.8rem;}
-  .top-hero-text{padding:2rem;}
+  header{ padding:0 1.2rem; }
+  nav{ gap:1.2rem; }
 }
 </style>
 </head>
 <body>
 
 <div id="cur">
-  <svg viewBox="0 0 24 24" fill="var(--ink)" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <polygon points="12,2 14.9,9.1 22.5,9.5 16.8,14.5 18.8,22 12,17.8 5.2,22 7.2,14.5 1.5,9.5 9.1,9.1"/>
   </svg>
 </div>
 <div id="ring"></div>
+
 <div id="wipe">
   <div class="wipe-strip" data-i="0"></div>
   <div class="wipe-strip" data-i="1"></div>
@@ -826,6 +809,33 @@ nav a:hover, nav a.active{ color:var(--acc); }
   <div class="wipe-strip" data-i="4"></div>
   <div id="wipe-canvas"></div>
 </div>
+
+<header>
+  <span class="logo" onclick="goTo('top')">YUMIKA</span>
+  <nav>
+    <a onclick="goTo('works')" data-p="works">Work</a>
+    <a onclick="goTo('about')" data-p="about">About</a>
+    <a onclick="goTo('contact')" data-p="contact">Contact</a>
+  </nav>
+</header>
+
+<div id="app">
+  <div class="page active" id="page-top">
+    <div class="top-hero">
+      <div class="top-hero-ph"></div>
+      <div class="top-hero-text">
+        <button class="th-cta rv" onclick="goTo('works')">View Work <span class="arr"></span></button>
+      </div>
+    </div>
+    <div class="top-footer-bar">
+      <span class="tfb-copy">© 2026 YUMIKA. All rights reserved.</span>
+    </div>
+  </div>
+  <div class="page" id="page-works" style="padding:100px; text-align:center;"><h1>WORKS PAGE (Refer to your data)</h1></div>
+  <div class="page" id="page-about" style="padding:100px; text-align:center;"><h1>ABOUT PAGE (Refer to your data)</h1></div>
+  <div class="page" id="page-contact" style="padding:100px; text-align:center;"><h1>CONTACT PAGE (Refer to your data)</h1></div>
+</div>
+
 
 <!-- ══ HEADER ══ -->
 <header>
