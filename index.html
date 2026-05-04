@@ -209,7 +209,12 @@ nav a{
 nav a:hover,nav a.active{color:var(--acc);}
 
 /* ── PAGE SYSTEM ── */
-#app{position:fixed;inset:0;top:52px;}
+#app {
+  position: fixed;
+  inset: 0;
+  /* 52px から 80px くらいに変更して、ちょうどいい位置に調整します */
+  top: 80px; 
+}
 
 .page{
   position:absolute;inset:0;
@@ -846,7 +851,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 </div>
 
 <!-- ══ HEADER ══ -->
-<header style="display: flex !important; justify-content: space-between !important; width: 100% !important; padding: 10px 2.5rem !important; margin-top: 20px !important; height: auto !important;">
+<header style="display: flex !important; justify-content: space-between !important; width: 100% !important; padding: 20px 2.5rem 0 !important; margin-top: 20px !important; height: auto !important;">
   <span class="logo" onclick="goTo('top')" style="cursor:none;">YUMIKA</span>
   <nav>
     <a onclick="goTo('works')" data-p="works">Work</a>
