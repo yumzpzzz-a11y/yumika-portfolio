@@ -875,13 +875,15 @@ nav a:hover,nav a.active{color:var(--acc);}
 </div>
 
 <!-- ══ HEADER ══ -->
-<header style="display: flex !important; justify-content: space-between !important; width: 100% !important; max-width: 1200px important; margin: 20px auto 0 !important; padding: 20px 0 !important; height: auto !important; position: fixed; left: 0; right: 0; z-index: 200; background: var(--bg);">
-  <span class="logo" onclick="goTo('top')" style="cursor:none;">YUMIKA</span>
-  <nav>
-    <a onclick="goTo('works')" data-p="works">Work</a>
-    <a onclick="goTo('about')" data-p="about">About</a>
-    <a onclick="goTo('contact')" data-p="contact">Contact</a>
-  </nav>
+<header style="position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: var(--bg); height: auto; margin-top: 20px;">
+  <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1180px; margin: 0 auto; padding: 20px 0;">
+    <span class="logo" onclick="goTo('top')" style="cursor:none;">YUMIKA</span>
+    <nav style="display: flex; gap: 2.2rem; align-items: center;">
+      <a onclick="goTo('works')" data-p="works">Work</a>
+      <a onclick="goTo('about')" data-p="about">About</a>
+      <a onclick="goTo('contact')" data-p="contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <div id="app">
@@ -941,7 +943,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 <div class="page" id="page-works">
 
   <div class="works-toolbar">
-  <div style="display: flex; justify-content: space-between; width: 100%; max-width: 1180px; margin: 0 auto; padding: 0;">
+  <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1180px; margin: 0 auto; padding: 0;">
     <span class="wt-label">Selected Work</span>
     <div class="wt-filters">
       <span class="wf active" onclick="filterW(this,'all')">All</span>
@@ -950,8 +952,6 @@ nav a:hover,nav a.active{color:var(--acc);}
     </div>
   </div>
 </div>
-  </div>
-
   <div class="works-grid" id="works-grid">
 
     <!-- 01 -->
