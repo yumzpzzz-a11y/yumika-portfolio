@@ -174,15 +174,9 @@ header {
   z-index: 200;
   background: var(--bg);
   display: flex;
-  align-items: center;
-  
-  /* 上下に 40px の大きな隙間を作ります（数値はお好みで） */
-  padding: 40px 2.5rem; 
-  
-  /* 高さの固定を解除！これで隙間が反映されます */
-  height: auto !important; 
-  
-  width: 100%;
+  align-items: center; 
+  padding: 0 2.5rem;
+  height: 52px;
 }
 
 .logo {
@@ -215,12 +209,7 @@ nav a{
 nav a:hover,nav a.active{color:var(--acc);}
 
 /* ── PAGE SYSTEM ── */
-#app {
-  position: fixed;
-  inset: 0;
-  /* ヘッダーが厚くなった分、ここを 52px から 120px くらいに増やします */
-  top: 120px; 
-}
+#app{position:fixed;inset:0;top:52px;}
 
 .page{
   position:absolute;inset:0;
