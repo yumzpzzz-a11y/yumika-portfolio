@@ -355,12 +355,23 @@ nav a:hover,nav a.active{color:var(--acc);}
 ═══════════════════════════ */
 #page-works{background:var(--bg);}
 
-.works-toolbar{
-  position:sticky;top:0;z-index:10;
-  background:var(--bg);
-  border-bottom:.5px solid var(--line);
-  display:flex;justify-content:space-between;align-items:center;
-  padding:0 2.5rem;height:46px;
+.works-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: .5px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* ▼ ここを追加：ヘッダーと同じ幅に設定して中央に寄せます */
+  max-width: 1200px; /* 画像列の幅に合わせる */
+  margin: 0 auto;    /* 中央寄せ */
+  padding: 0;        /* 左右の余白をリセットして端を揃える */
+  
+  height: 46px;
+  width: 100%;
 }
 .wt-label{font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;}
 .wt-filters{display:flex;gap:2rem;}
@@ -859,7 +870,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 </div>
 
 <!-- ══ HEADER ══ -->
-<header style="display: flex !important; justify-content: space-between !important; width: 90% !important; max-width: 1180px !important; height: auto !important; position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; margin: 20px auto 0 !important; padding: 20px 0 !important; z-index: 200; background: var(--bg); transition: all 0.3s;">
+<header style="display: flex !important; justify-content: space-between !important; width: 100% !important; max-width: 1200px important; margin: 20px auto 0 !important; padding: 20px 0 !important; height: auto !important; position: fixed; left: 0; right: 0; z-index: 200; background: var(--bg);">
   <span class="logo" onclick="goTo('top')" style="cursor:none;">YUMIKA</span>
   <nav>
     <a onclick="goTo('works')" data-p="works">Work</a>
