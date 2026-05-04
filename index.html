@@ -162,7 +162,7 @@ body.ch #ring{width:36px;height:36px;border-color:rgba(5,40,242,.25);}
   to  { transform:scaleX(0); }
 }
   to  { transform:scaleX(0); }
-}
+
 
 /* ── HEADER ── */
 /* ── HEADER (FIXED) ── */
@@ -373,21 +373,17 @@ nav a:hover,nav a.active{color:var(--acc);}
 /* 3-column grid — no border lines, gap 50px */
 .works-grid {
   display: grid !important;
-  /* 1. 4列を強制し、1枚あたりの幅を少し抑える(280px)のがコツです */
-  grid-template-columns: repeat(4, 280px) !important;
+  /* 280px だったのを 340px くらいに大きくすると外に広がります */
+  grid-template-columns: repeat(4, 340px) !important;
   
-  /* 2. 隙間を 20px に設定 */
-  gap: 20px !important; 
+  /* 隙間（gap）もお好みで少し広げるとゆとりが出ます */
+  gap: 30px !important; 
   
-  /* 3. 全体を中央に寄せ、左右の余白を自動調整 */
-  justify-content: center !important; 
+  justify-content: center !important;
   margin: 0 auto !important;
-  
-  /* 4. 横幅の制限をなくし、画面いっぱいに使えるようにします */
-  max-width: none !important;
   width: 100% !important;
-  padding: 50px 2.5rem !important;
 }
+
 .wg-item{
   cursor:none;
   position:relative;
@@ -862,7 +858,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 </div>
 
 <!-- ══ HEADER ══ -->
-<header style="display: flex !important; justify-content: space-between !important; width: 100% !important; padding: 20px 2.5rem 0 !important; margin-top: 20px !important; height: auto !important;">
+<header style="display: flex !important; justify-content: space-between !important; width: 100% !important; max-width: 1400px !important; margin: 20px auto 0 !important; padding: 20px 2.5rem 0 !important; height: auto !important; position: fixed; left: 0; right: 0; z-index: 200; background: var(--bg);">
   <span class="logo" onclick="goTo('top')" style="cursor:none;">YUMIKA</span>
   <nav>
     <a onclick="goTo('works')" data-p="works">Work</a>
@@ -910,7 +906,7 @@ nav a:hover,nav a.active{color:var(--acc);}
   </div>
 
   <div class="top-footer-bar">
-    <span class="tfb-copy">© 2025 YUMIKA. All rights reserved.</span>
+    <span class="tfb-copy">© 2026 YUMIKA. All rights reserved.</span>
     <div class="tfb-links">
       <a href="https://twitter.com/yumika_zzzp" target="_blank" aria-label="X (Twitter)">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
@@ -1091,7 +1087,7 @@ nav a:hover,nav a.active{color:var(--acc);}
   </div><!-- /works-grid -->
 
   <div class="page-footer">
-    <span class="pf-copy">© 2025 YUMIKA. All rights reserved.</span>
+    <span class="pf-copy">© 2026 YUMIKA. All rights reserved.</span>
     <div class="pf-links">
       <a href="https://twitter.com/yumika_zzzp" target="_blank" aria-label="X (Twitter)">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
@@ -1238,7 +1234,7 @@ nav a:hover,nav a.active{color:var(--acc);}
   </div>
 
   <div class="page-footer">
-    <span class="pf-copy">© 2025 YUMIKA. All rights reserved.</span>
+    <span class="pf-copy">© 2026 YUMIKA. All rights reserved.</span>
     <div class="pf-links">
       <a href="https://twitter.com/yumika_zzzp" target="_blank" aria-label="X (Twitter)">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
@@ -1286,7 +1282,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 
   </div>
   <div class="page-footer">
-    <span class="pf-copy">© 2025 YUMIKA. All rights reserved.</span>
+    <span class="pf-copy">© 2026 YUMIKA. All rights reserved.</span>
     <div class="pf-links">
       <a href="https://twitter.com/yumika_zzzp" target="_blank" aria-label="X (Twitter)">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
@@ -1357,7 +1353,7 @@ nav a:hover,nav a.active{color:var(--acc);}
   </div>
 
   <div class="page-footer">
-    <span class="pf-copy">© 2025 YUMIKA. All rights reserved.</span>
+    <span class="pf-copy">© 2026 YUMIKA. All rights reserved.</span>
     <div class="pf-links">
       <a href="https://twitter.com/yumika_zzzp" target="_blank" aria-label="X (Twitter)">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
