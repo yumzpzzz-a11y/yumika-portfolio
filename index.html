@@ -169,15 +169,18 @@ header{
   position:fixed;top:0;left:0;right:0;z-index:200;
   background:var(--bg);
   display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:nowrap;
   padding:0 2.5rem;
   height:52px;
+  width:100%;
 }
 .logo{
   font-family:'Helvetica Neue',Helvetica,sans-serif;
   font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;
   color:var(--ink);text-decoration:none;cursor:none;font-weight:700;
+  flex-shrink:0;
 }
-nav{display:flex;gap:2.2rem;align-items:center;}
+nav{display:flex;gap:2.2rem;align-items:center;margin-left:auto;flex-shrink:0;}
 nav a{
   font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
   color:var(--ink);text-decoration:none;cursor:none;
@@ -801,7 +804,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 }
 @media(max-width:480px){
   .works-grid{grid-template-columns:1fr;gap:20px;padding:20px;}
-  nav{gap:1.2rem;}
+  nav{gap:1.2rem;margin-left:auto;}
   .top-h1{font-size:2.8rem;}
   .top-hero-text{padding:2rem;}
 }
@@ -827,7 +830,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 <!-- ══ HEADER ══ -->
 <header>
   <span class="logo" onclick="goTo('top')" style="cursor:none;">YUMIKA</span>
-  <nav>
+  <nav style="display:flex;gap:2.2rem;align-items:center;margin-left:auto;flex-shrink:0;">
     <a onclick="goTo('works')" data-p="works">Work</a>
     <a onclick="goTo('about')" data-p="about">About</a>
     <a onclick="goTo('contact')" data-p="contact">Contact</a>
