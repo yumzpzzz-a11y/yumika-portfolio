@@ -165,33 +165,22 @@ body.ch #ring{width:36px;height:36px;border-color:rgba(5,40,242,.25);}
 }
 
 /* ── HEADER ── */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 200;
-  background: var(--bg);
-  display: flex;        /* 横並びにする */
-  align-items: center;  /* 上下中央 */
-  padding: 0 2.5rem;
-  height: 52px;
-  /* justify-content: space-between; はあってもなくてもOKですが、なくても動きます */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:var(--bg);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:nowrap;
+  padding:0 2.5rem;
+  height:52px;
+  width:100%;
 }
-
-.logo {
-  /* 既存のフォント設定などはそのまま */
-  flex-shrink: 0; 
-  /* ここが一番重要！右側の余白を自動で最大化して、隣のnavを右端へ押し出します */
-  margin-right: auto; 
+.logo{
+  font-family:'Helvetica Neue',Helvetica,sans-serif;
+  font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;cursor:none;font-weight:700;
+  flex-shrink:0;
 }
-
-<nav>
-  <a onclick="goTo('works')" data-p="works">Work</a>
-  <a onclick="goTo('about')" data-p="about">About</a>
-  <a onclick="goTo('contact')" data-p="contact">Contact</a>
-</nav>
-
+nav{display:flex;gap:2.2rem;align-items:center;margin-left:auto;flex-shrink:0;}
 nav a{
   font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
   color:var(--ink);text-decoration:none;cursor:none;
