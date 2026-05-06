@@ -162,7 +162,7 @@ body.ch #ring{width:36px;height:36px;border-color:rgba(5,40,242,.25);}
   to  { transform:scaleX(0); }
 }
   to  { transform:scaleX(0); }
-
+}
 
 /* ── HEADER ── */
 /* ── HEADER (FIXED) ── */
@@ -174,9 +174,18 @@ header {
   z-index: 200;
   background: var(--bg);
   display: flex;
+  justify-content: center;
   align-items: center; 
-  padding: 0 2.5rem;
+  padding: 0;
   height: 52px;
+}
+.header-inner {
+  width: 100%;
+  max-width: 1220px;
+  padding: 0 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
@@ -359,8 +368,14 @@ nav a:hover,nav a.active{color:var(--acc);}
   position:sticky;top:0;z-index:10;
   background:var(--bg);
   border-bottom:.5px solid var(--line);
+  display:flex;justify-content:center;align-items:center;
+  padding:0;height:46px;
+}
+.works-toolbar-inner{
+  width:100%;
+  max-width:1220px;
+  padding:0 2.5rem;
   display:flex;justify-content:space-between;align-items:center;
-  padding:0 2.5rem;height:46px;
 }
 .wt-label{font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;}
 .wt-filters{display:flex;gap:2rem;}
@@ -373,17 +388,21 @@ nav a:hover,nav a.active{color:var(--acc);}
 /* 3-column grid — no border lines, gap 50px */
 .works-grid {
   display: grid !important;
-  /* 280px だったのを 340px くらいに大きくすると外に広がります */
-  grid-template-columns: repeat(4, 300px) !important;
+  /* 1. 4列を強制し、1枚あたりの幅を少し抑える(280px)のがコツです */
+  grid-template-columns: repeat(4, 280px) !important;
   
-  /* 隙間（gap）もお好みで少し広げるとゆとりが出ます */
-  gap: 30px !important; 
+  /* 2. 隙間を 20px に設定 */
+  gap: 20px !important; 
   
-  justify-content: center !important;
+  /* 3. 全体を中央に寄せ、左右の余白を自動調整 */
+  justify-content: center !important; 
   margin: 0 auto !important;
+  
+  /* 4. 横幅の制限をなくし、画面いっぱいに使えるようにします */
+  max-width: none !important;
   width: 100% !important;
+  padding: 50px 2.5rem !important;
 }
-
 .wg-item{
   cursor:none;
   position:relative;
@@ -858,13 +877,15 @@ nav a:hover,nav a.active{color:var(--acc);}
 </div>
 
 <!-- ══ HEADER ══ -->
-<header style="display: flex !important; justify-content: space-between !important; width: 100% !important; max-width: 1400px !important; margin: 20px auto 0 !important; padding: 20px 2.5rem 0 !important; height: auto !important; position: fixed; left: 0; right: 0; z-index: 200; background: var(--bg);">
+<header>
+  <div class="header-inner">
   <span class="logo" onclick="goTo('top')" style="cursor:none;">YUMIKA</span>
   <nav>
     <a onclick="goTo('works')" data-p="works">Work</a>
     <a onclick="goTo('about')" data-p="about">About</a>
     <a onclick="goTo('contact')" data-p="contact">Contact</a>
   </nav>
+  </div>
 </header>
 
 <div id="app">
@@ -924,12 +945,14 @@ nav a:hover,nav a.active{color:var(--acc);}
 <div class="page" id="page-works">
 
   <div class="works-toolbar">
+    <div class="works-toolbar-inner">
     <span class="wt-label">Selected Work</span>
     <div class="wt-filters">
       <span class="wf active" onclick="filterW(this,'all')">All</span>
       <span class="wf" onclick="filterW(this,'public')">Public</span>
       <span class="wf" onclick="filterW(this,'nda')">NDA</span>
     </div>
+    </div><!-- /works-toolbar-inner -->
   </div>
 
   <div class="works-grid" id="works-grid">
@@ -1052,7 +1075,7 @@ nav a:hover,nav a.active{color:var(--acc);}
     </div>
 
     <!-- NDA 01 -->
-    <div class="wg-item locked rv" data-cat="nda" onclick="openLock()">
+    <div class="wg-item locked rv" data-cat="nda" data-id="nda01" onclick="openLock(this)">
       <div class="wg-img glock">
         <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none" opacity=".15"><circle cx="45" cy="45" r="36" stroke="#111110" stroke-width=".5"/></svg></div>
         <div class="wg-lock">
@@ -1063,7 +1086,7 @@ nav a:hover,nav a.active{color:var(--acc);}
     </div>
 
     <!-- NDA 02 -->
-    <div class="wg-item locked rv d1" data-cat="nda" onclick="openLock()">
+    <div class="wg-item locked rv d1" data-cat="nda" data-id="nda02" onclick="openLock(this)">
       <div class="wg-img glock">
         <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none" opacity=".15"><rect x="14" y="14" width="62" height="62" stroke="#111110" stroke-width=".5" transform="rotate(22 45 45)"/></svg></div>
         <div class="wg-lock">
@@ -1074,7 +1097,7 @@ nav a:hover,nav a.active{color:var(--acc);}
     </div>
 
     <!-- NDA 03 -->
-    <div class="wg-item locked rv d2" data-cat="nda" onclick="openLock()">
+    <div class="wg-item locked rv d2" data-cat="nda" data-id="nda03" onclick="openLock(this)">
       <div class="wg-img glock">
         <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none" opacity=".15"><polygon points="45,9 81,72 9,72" stroke="#111110" stroke-width=".5"/></svg></div>
         <div class="wg-lock">
@@ -1373,7 +1396,7 @@ nav a:hover,nav a.active{color:var(--acc);}
     <div class="lm-ttl">Password Required</div>
     <h3 class="lm-h3">NDA Protected</h3>
     <p class="lm-p">このプロジェクトはNDA対象です。<br>パスワードをお持ちの方のみご覧いただけます。</p>
-    <input class="lm-in" type="password" id="lock-pw" placeholder="· · · · · ·" onkeydown="if(event.key==='Enter')checkPass()">
+    <input class="lm-in" type="password" id="lock-pw" placeholder="· · · · · ·" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter')checkPass()">
     <div class="lm-err" id="lock-err">パスワードが正しくありません</div>
     <button class="lm-btn" onclick="checkPass()">Enter <span class="arr" style="height:.5px;background:var(--ink);"></span></button>
     <span class="lm-close" onclick="closeLock()">Close ×</span>
@@ -1507,6 +1530,9 @@ var PROJECTS = {
   '06': { num:'06 / 09', cat:'Live Visual · CG', year:'2022', role:'VJ, Real-time CG', tools:'Unreal Engine, Cinema 4D, After Effects', title:'Project Title', desc:'ライブ演出のためのリアルタイムCGビジュアル。音楽と映像が呼応するインタラクティブな空間演出を担当。音楽の波形データをリアルタイムに取得し、ビジュアルが即座に反応するシステムを構築。', bg:'g6' },
   '07': { num:'07 / 09', cat:'3D CG · Art Direction', year:'2022', role:'Art Direction, CG Design', tools:'Cinema 4D, Redshift, After Effects', title:'Project Title', desc:'アートディレクションから3DCG制作まで一貫した作品制作。コンセプト立案から納品まで対応。クライアントのビジョンを深く理解し、ブランドの世界観を忠実に表現した。', bg:'g7' },
   '08': { num:'08 / 09', cat:'Brand Film · CG', year:'2022', role:'CG Design, Director', tools:'Cinema 4D, Octane, Premiere Pro', title:'Project Title', desc:'ブランドの世界観をCGで表現したイメージフィルム。製品の本質をビジュアルで伝える映像を制作。抽象的なCGとプロダクトショットを組み合わせ、ブランドのストーリーを語る。', bg:'g8' },
+  'nda01': { num:'NDA 01 / 03', cat:'NDA · 3D CG', year:'2025', role:'Art Direction, CG Design', tools:'Cinema 4D, Redshift', title:'Confidential Project', desc:'NDA対象のプロジェクトです。詳細はお問い合わせください。', bg:'glock' },
+  'nda02': { num:'NDA 02 / 03', cat:'NDA · Installation', year:'2024', role:'CG Design, Direction', tools:'Cinema 4D, Unreal Engine', title:'Confidential Project', desc:'NDA対象のプロジェクトです。詳細はお問い合わせください。', bg:'glock' },
+  'nda03': { num:'NDA 03 / 03', cat:'NDA · Motion', year:'2024', role:'Motion Design', tools:'Cinema 4D, After Effects', title:'Confidential Project', desc:'NDA対象のプロジェクトです。詳細はお問い合わせください。', bg:'glock' },
   '09': { num:'09 / 09', cat:'Exhibition · CG', year:'2021', role:'Art Direction, CG Design', tools:'Cinema 4D, Unreal Engine, After Effects', title:'Project Title', desc:'展示会向けのデジタルアート作品。観客が作品の中に入り込むような体験を設計。インタラクティブな要素を取り入れ、訪れるたびに異なる表情を見せる作品として制作。', bg:'g9' }
 };
 
@@ -1552,8 +1578,10 @@ var obs=new IntersectionObserver(function(entries){
 document.querySelectorAll('#page-works .rv,#page-about .rv,#page-contact .rv').forEach(function(el){obs.observe(el);});
 
 // ── LOCK ──
-var PASS='yumika2025';
-function openLock(){
+var PASS='yumikia2026';
+var _pendingNdaEl = null;
+function openLock(el){
+  _pendingNdaEl = el || null;
   document.getElementById('lock-overlay').classList.add('show');
   document.getElementById('lock-pw').value='';
   document.getElementById('lock-err').style.display='none';
@@ -1561,7 +1589,11 @@ function openLock(){
 }
 function closeLock(){document.getElementById('lock-overlay').classList.remove('show');}
 function checkPass(){
-  if(document.getElementById('lock-pw').value===PASS){closeLock();alert('認証されました。');}
+  var pw = document.getElementById('lock-pw').value.trim();
+  if(pw===PASS){
+    closeLock();
+    if(_pendingNdaEl){openDetail(_pendingNdaEl);_pendingNdaEl=null;}
+  }
   else{document.getElementById('lock-err').style.display='block';document.getElementById('lock-pw').value='';}
 }
 document.getElementById('lock-overlay').addEventListener('click',function(e){if(e.target===this)closeLock();});
