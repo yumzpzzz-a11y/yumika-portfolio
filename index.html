@@ -173,11 +173,12 @@ header {
   right: 0;
   z-index: 200;
   background: var(--bg);
+  border-bottom: .5px solid var(--line);
   display: flex;
   justify-content: center;
   align-items: center; 
   padding: 0;
-  height: 52px;
+  height: 64px;
 }
 .header-inner {
   width: 100%;
@@ -221,8 +222,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 #app {
   position: fixed;
   inset: 0;
-  /* 52px から 80px くらいに変更して、ちょうどいい位置に調整します */
-  top: 80px; 
+  top: 64px;
 }
 
 .page{
@@ -957,122 +957,8 @@ nav a:hover,nav a.active{color:var(--acc);}
 
   <div class="works-grid" id="works-grid">
 
-    <!-- 01 -->
-    <div class="wg-item rv" data-cat="public" data-id="01" onclick="openDetail(this)">
-      <div class="wg-img g1">
-        <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none"><circle cx="45" cy="45" r="36" stroke="#111110" stroke-width=".5"/><circle cx="45" cy="45" r="24" stroke="#111110" stroke-width=".5"/><circle cx="45" cy="45" r="12" stroke="#111110" stroke-width=".5"/></svg></div>
-      </div>
-      <div class="wg-overlay">
-        <div class="wg-ov-cat">3D CG · Installation</div>
-        <div class="wg-ov-title">Project Title</div>
-        <div class="wg-ov-desc">現実の枠組みを超えたインスタレーション作品。空間全体を包み込む没入型のCG体験。</div>
-        <div class="wg-ov-year">2025</div>
-      </div>
-    </div>
-
-    <!-- 02 -->
-    <div class="wg-item rv d1" data-cat="public" data-id="02" onclick="openDetail(this)">
-      <div class="wg-img g2">
-        <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none"><rect x="14" y="14" width="62" height="62" stroke="#111110" stroke-width=".5" transform="rotate(15 45 45)"/><rect x="28" y="28" width="34" height="34" stroke="#111110" stroke-width=".5" transform="rotate(45 45 45)"/></svg></div>
-      </div>
-      <div class="wg-overlay">
-        <div class="wg-ov-cat">Motion Design · VFX</div>
-        <div class="wg-ov-title">Project Title</div>
-        <div class="wg-ov-desc">モーションデザインとVFXを組み合わせたブランドフィルム。</div>
-        <div class="wg-ov-year">2024</div>
-      </div>
-    </div>
-
-    <!-- 03 -->
-    <div class="wg-item rv d2" data-cat="public" data-id="03" onclick="openDetail(this)">
-      <div class="wg-img g3">
-        <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none"><polygon points="45,9 81,72 9,72" stroke="#111110" stroke-width=".5"/><polygon points="45,27 65,62 25,62" stroke="#111110" stroke-width=".5"/></svg></div>
-      </div>
-      <div class="wg-overlay">
-        <div class="wg-ov-cat">AR · Brand Campaign</div>
-        <div class="wg-ov-title">Project Title</div>
-        <div class="wg-ov-desc">ARを活用したブランドキャンペーン。デジタルと現実の境界を溶かす体験設計。</div>
-        <div class="wg-ov-year">2024</div>
-      </div>
-    </div>
-
-    <!-- 04 -->
-    <div class="wg-item rv" data-cat="public" data-id="04" onclick="openDetail(this)">
-      <div class="wg-img g4">
-        <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none"><path d="M9 45 Q27 18 45 45 Q63 72 81 45" stroke="#111110" stroke-width=".5" fill="none"/><path d="M9 45 Q27 27 45 45 Q63 63 81 45" stroke="#111110" stroke-width=".5" fill="none"/><circle cx="45" cy="45" r="10" stroke="#111110" stroke-width=".5"/></svg></div>
-      </div>
-      <div class="wg-overlay">
-        <div class="wg-ov-cat">MV Direction · CG</div>
-        <div class="wg-ov-title">Project Title</div>
-        <div class="wg-ov-desc">MVのアートディレクションからCG制作まで一貫して担当。楽曲世界観に沿った没入型ビジュアル。</div>
-        <div class="wg-ov-year">2023</div>
-      </div>
-    </div>
-
-    <!-- 05 -->
-    <div class="wg-item rv d1" data-cat="public" data-id="05" onclick="openDetail(this)">
-      <div class="wg-img g5">
-        <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none"><path d="M45 9 L81 45 L45 81 L9 45 Z" stroke="#111110" stroke-width=".5"/><path d="M45 27 L63 45 L45 63 L27 45 Z" stroke="#111110" stroke-width=".5"/><circle cx="45" cy="45" r="8" stroke="#111110" stroke-width=".5"/></svg></div>
-      </div>
-      <div class="wg-overlay">
-        <div class="wg-ov-cat">Highend CG · Commercial</div>
-        <div class="wg-ov-title">Project Title</div>
-        <div class="wg-ov-desc">ハイエンドCGを用いた商品広告映像。質感表現と光のコントロールにこだわった1本。</div>
-        <div class="wg-ov-year">2023</div>
-      </div>
-    </div>
-
-    <!-- 06 -->
-    <div class="wg-item rv d2" data-cat="public" data-id="06" onclick="openDetail(this)">
-      <div class="wg-img g6">
-        <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none"><rect x="10" y="10" width="70" height="70" stroke="#111110" stroke-width=".5"/><rect x="24" y="24" width="42" height="42" stroke="#111110" stroke-width=".5"/><rect x="36" y="36" width="18" height="18" stroke="#111110" stroke-width=".5"/></svg></div>
-      </div>
-      <div class="wg-overlay">
-        <div class="wg-ov-cat">Live Visual · CG</div>
-        <div class="wg-ov-title">Project Title</div>
-        <div class="wg-ov-desc">ライブ演出のためのリアルタイムCGビジュアル。音楽と映像が呼応するインタラクティブな空間演出。</div>
-        <div class="wg-ov-year">2022</div>
-      </div>
-    </div>
-
-    <!-- 07 -->
-    <div class="wg-item rv" data-cat="public" data-id="07" onclick="openDetail(this)">
-      <div class="wg-img g7">
-        <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none"><line x1="9" y1="45" x2="81" y2="45" stroke="#111110" stroke-width=".5"/><line x1="45" y1="9" x2="45" y2="81" stroke="#111110" stroke-width=".5"/><circle cx="45" cy="45" r="28" stroke="#111110" stroke-width=".5"/><circle cx="45" cy="45" r="14" stroke="#111110" stroke-width=".5"/></svg></div>
-      </div>
-      <div class="wg-overlay">
-        <div class="wg-ov-cat">3D CG · Art Direction</div>
-        <div class="wg-ov-title">Project Title</div>
-        <div class="wg-ov-desc">アートディレクションから3DCG制作まで一貫した作品制作。コンセプト立案から納品まで対応。</div>
-        <div class="wg-ov-year">2022</div>
-      </div>
-    </div>
-
-    <!-- 08 -->
-    <div class="wg-item rv d1" data-cat="public" data-id="08" onclick="openDetail(this)">
-      <div class="wg-img g8">
-        <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none"><ellipse cx="45" cy="45" rx="36" ry="20" stroke="#111110" stroke-width=".5"/><ellipse cx="45" cy="45" rx="20" ry="36" stroke="#111110" stroke-width=".5"/><circle cx="45" cy="45" r="8" stroke="#111110" stroke-width=".5"/></svg></div>
-      </div>
-      <div class="wg-overlay">
-        <div class="wg-ov-cat">Brand Film · CG</div>
-        <div class="wg-ov-title">Project Title</div>
-        <div class="wg-ov-desc">ブランドの世界観をCGで表現したイメージフィルム。製品の本質をビジュアルで伝える。</div>
-        <div class="wg-ov-year">2022</div>
-      </div>
-    </div>
-
-    <!-- 09 -->
-    <div class="wg-item rv d2" data-cat="public" data-id="09" onclick="openDetail(this)">
-      <div class="wg-img g9">
-        <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none"><path d="M9 9 L45 81 L81 9" stroke="#111110" stroke-width=".5" fill="none"/><path d="M9 81 L45 9 L81 81" stroke="#111110" stroke-width=".5" fill="none"/></svg></div>
-      </div>
-      <div class="wg-overlay">
-        <div class="wg-ov-cat">Exhibition · CG</div>
-        <div class="wg-ov-title">Project Title</div>
-        <div class="wg-ov-desc">展示会向けのデジタルアート作品。観客が作品の中に入り込むような体験を設計。</div>
-        <div class="wg-ov-year">2021</div>
-      </div>
-    </div>
+    <!-- Sanityから動的に読み込まれます -->
+    <div id="sanity-works-loading" style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--faint);font-size:.75rem;letter-spacing:.1em;">Loading...</div>
 
     <!-- NDA 01 -->
     <div class="wg-item locked rv" data-cat="nda" data-id="nda01" onclick="openLock(this)">
@@ -1521,20 +1407,104 @@ function triggerReveal(container){
 setTimeout(function(){triggerReveal(document.getElementById('page-top'));},60);
 
 // ── PROJECT DATA ──
-var PROJECTS = {
-  '01': { num:'01 / 09', cat:'3D CG · Installation', year:'2025', role:'Art Direction, CG Design', tools:'Cinema 4D, Redshift, After Effects', title:'Project Title', desc:'現実の枠組みを超えたインスタレーション作品。空間全体を包み込む没入型のCG体験を設計。光と粒子が絡み合うシミュレーションにより、観客が作品の内部に溶け込むような感覚を創出した。', bg:'g1' },
-  '02': { num:'02 / 09', cat:'Motion Design · VFX', year:'2024', role:'Motion Design, VFX', tools:'Cinema 4D, After Effects, Premiere Pro', title:'Project Title', desc:'モーションデザインとVFXを組み合わせたブランドフィルム。ブランドのコアバリューを抽象的なビジュアルに落とし込み、見る者の感情に直接訴えかける映像体験を制作。', bg:'g2' },
-  '03': { num:'03 / 09', cat:'AR · Brand Campaign', year:'2024', role:'Creative Direction, AR Design', tools:'Cinema 4D, Unreal Engine, After Effects', title:'Project Title', desc:'ARを活用したブランドキャンペーン。デジタルと現実の境界を溶かす体験設計を担当。スマートフォン越しに現れるCGオブジェクトが、日常の空間と融合する没入型の体験を実現。', bg:'g3' },
-  '04': { num:'04 / 09', cat:'MV Direction · CG', year:'2023', role:'Director, CG Design', tools:'Cinema 4D, Redshift, After Effects', title:'Project Title', desc:'MVのアートディレクションからCG制作まで一貫して担当。楽曲世界観に沿った没入型ビジュアルを構築。音楽とビジュアルが有機的に呼応し、楽曲の持つ感情を視覚化した作品。', bg:'g4' },
-  '05': { num:'05 / 09', cat:'Highend CG · Commercial', year:'2023', role:'CG Design, Rendering', tools:'Cinema 4D, Octane, X-Particles', title:'Project Title', desc:'ハイエンドCGを用いた商品広告映像。質感表現と光のコントロールにこだわった1本。製品の素材感をフォトリアルに再現し、ブランドの高級感を映像で体現。', bg:'g5' },
-  '06': { num:'06 / 09', cat:'Live Visual · CG', year:'2022', role:'VJ, Real-time CG', tools:'Unreal Engine, Cinema 4D, After Effects', title:'Project Title', desc:'ライブ演出のためのリアルタイムCGビジュアル。音楽と映像が呼応するインタラクティブな空間演出を担当。音楽の波形データをリアルタイムに取得し、ビジュアルが即座に反応するシステムを構築。', bg:'g6' },
-  '07': { num:'07 / 09', cat:'3D CG · Art Direction', year:'2022', role:'Art Direction, CG Design', tools:'Cinema 4D, Redshift, After Effects', title:'Project Title', desc:'アートディレクションから3DCG制作まで一貫した作品制作。コンセプト立案から納品まで対応。クライアントのビジョンを深く理解し、ブランドの世界観を忠実に表現した。', bg:'g7' },
-  '08': { num:'08 / 09', cat:'Brand Film · CG', year:'2022', role:'CG Design, Director', tools:'Cinema 4D, Octane, Premiere Pro', title:'Project Title', desc:'ブランドの世界観をCGで表現したイメージフィルム。製品の本質をビジュアルで伝える映像を制作。抽象的なCGとプロダクトショットを組み合わせ、ブランドのストーリーを語る。', bg:'g8' },
-  'nda01': { num:'NDA 01 / 03', cat:'NDA · 3D CG', year:'2025', role:'Art Direction, CG Design', tools:'Cinema 4D, Redshift', title:'Confidential Project', desc:'NDA対象のプロジェクトです。詳細はお問い合わせください。', bg:'glock' },
-  'nda02': { num:'NDA 02 / 03', cat:'NDA · Installation', year:'2024', role:'CG Design, Direction', tools:'Cinema 4D, Unreal Engine', title:'Confidential Project', desc:'NDA対象のプロジェクトです。詳細はお問い合わせください。', bg:'glock' },
-  'nda03': { num:'NDA 03 / 03', cat:'NDA · Motion', year:'2024', role:'Motion Design', tools:'Cinema 4D, After Effects', title:'Confidential Project', desc:'NDA対象のプロジェクトです。詳細はお問い合わせください。', bg:'glock' },
-  '09': { num:'09 / 09', cat:'Exhibition · CG', year:'2021', role:'Art Direction, CG Design', tools:'Cinema 4D, Unreal Engine, After Effects', title:'Project Title', desc:'展示会向けのデジタルアート作品。観客が作品の中に入り込むような体験を設計。インタラクティブな要素を取り入れ、訪れるたびに異なる表情を見せる作品として制作。', bg:'g9' }
-};
+// ── SANITY CONFIG ──
+var SANITY_PROJECT_ID = 'cw17p78d';
+var SANITY_DATASET = 'production';
+var SANITY_API_URL = 'https://' + SANITY_PROJECT_ID + '.api.sanity.io/v2021-10-21/data/query/' + SANITY_DATASET;
+
+// PROJECTS: Sanityから取得したデータを格納
+var PROJECTS = {};
+
+function getSanityImageUrl(ref) {
+  if (!ref) return null;
+  // ref format: image-xxxx-800x600-jpg
+  var parts = ref.replace('image-', '').split('-');
+  var id = parts.slice(0, -2).join('-');
+  var dims = parts[parts.length - 2];
+  var ext = parts[parts.length - 1];
+  return 'https://cdn.sanity.io/images/' + SANITY_PROJECT_ID + '/' + SANITY_DATASET + '/' + id + '-' + dims + '.' + ext;
+}
+
+function renderWorks(works) {
+  var grid = document.getElementById('works-grid');
+  var loading = document.getElementById('sanity-works-loading');
+  if (loading) loading.remove();
+
+  // NDAカードの前に挿入するため、最初のNDAカードを探す
+  var ndaCard = grid.querySelector('.locked');
+
+  works.forEach(function(work, i) {
+    var num = String(i + 1).padStart(2, '0');
+    var total = String(works.length).padStart(2, '0');
+    var id = work._id;
+
+    // PROJECTS に格納
+    PROJECTS[id] = {
+      num: num + ' / ' + total,
+      cat: work.category || '',
+      year: work.year || '',
+      role: work.role || '',
+      tools: work.tools || '',
+      title: work.title || '',
+      desc: work.description || '',
+      bg: 'g' + ((i % 9) + 1),
+      imageUrl: work.image ? getSanityImageUrl(work.image.asset._ref) : null
+    };
+
+    var item = document.createElement('div');
+    item.className = 'wg-item rv';
+    item.dataset.cat = 'public';
+    item.dataset.id = id;
+    item.setAttribute('onclick', 'openDetail(this)');
+
+    var imgHtml = work.image
+      ? '<img src="' + getSanityImageUrl(work.image.asset._ref) + '" alt="' + (work.title || '') + '" loading="lazy">'
+      : '<div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none"><circle cx="45" cy="45" r="36" stroke="#111110" stroke-width=".5"/><circle cx="45" cy="45" r="24" stroke="#111110" stroke-width=".5"/></svg></div>';
+
+    item.innerHTML =
+      '<div class="wg-img g' + ((i % 9) + 1) + '">' + imgHtml + '</div>' +
+      '<div class="wg-overlay">' +
+        '<div class="wg-ov-cat">' + (work.category || '') + '</div>' +
+        '<div class="wg-ov-title">' + (work.title || '') + '</div>' +
+        '<div class="wg-ov-desc">' + (work.description || '').substring(0, 60) + '...</div>' +
+        '<div class="wg-ov-year">' + (work.year || '') + '</div>' +
+      '</div>';
+
+    // NDAカードの前に挿入
+    if (ndaCard) {
+      grid.insertBefore(item, ndaCard);
+    } else {
+      grid.appendChild(item);
+    }
+  });
+
+  // rv アニメーション再適用
+  setTimeout(function() {
+    grid.querySelectorAll('.rv').forEach(function(el) {
+      el.classList.add('in');
+    });
+  }, 100);
+}
+
+function fetchWorks() {
+  var query = encodeURIComponent('*[_type == "work"] | order(order asc) {_id, title, category, year, role, tools, description, isNda, order, image}');
+  var url = SANITY_API_URL + '?query=' + query;
+
+  fetch(url)
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      var works = (data.result || []).filter(function(w) { return !w.isNda; });
+      renderWorks(works);
+    })
+    .catch(function(err) {
+      console.error('Sanity fetch error:', err);
+      var loading = document.getElementById('sanity-works-loading');
+      if (loading) loading.textContent = '作品の読み込みに失敗しました';
+    });
+}
+
+// ページ読み込み時に実行
+fetchWorks();
 
 var prevPage = 'works';
 
@@ -1578,7 +1548,7 @@ var obs=new IntersectionObserver(function(entries){
 document.querySelectorAll('#page-works .rv,#page-about .rv,#page-contact .rv').forEach(function(el){obs.observe(el);});
 
 // ── LOCK ──
-var PASS='yumikia2026';
+var PASS='yumika2026';
 var _pendingNdaEl = null;
 function openLock(el){
   _pendingNdaEl = el || null;
