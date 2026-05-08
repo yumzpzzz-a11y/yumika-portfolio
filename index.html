@@ -50,7 +50,7 @@ body{
 .demoreel-locked{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;}
 .demoreel-lock-ic{font-size:1.6rem;line-height:1;}
 .demoreel-lock-txt{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);font-family:'Helvetica Neue',Helvetica,sans-serif;}
-.demoreel-inner{position:relative;width:100%;height:100%;}
+.demoreel-inner{position:relative;width:100%;aspect-ratio:16/9;}
 .demoreel-inner iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
 /* ── CURSOR ── */
 #cur{
@@ -1054,7 +1054,7 @@ nav a:hover,nav a.active{color:var(--acc);}
           <div class="demoreel-lock-ic">🔒</div>
           <span class="demoreel-lock-txt">Confidential · Password Required</span>
         </div>
-        <div id="demoreel-player" style="display:none;">
+        <div id="demoreel-player" style="display:none;width:100%;">
           <div class="demoreel-inner">
             <iframe id="demoreel-iframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
           </div>
@@ -1577,7 +1577,7 @@ function showDemoreelPlayer(){
   if(locked)locked.style.display='none';
   if(window.DEMOREEL_URL){var ytId=window.DEMOREEL_URL.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([-\w]{11})(?:[?&]|$)/);if(ytId)iframe.src='https://www.youtube.com/embed/'+ytId[1]+'?rel=0';}
   player.style.display='';
-  var wrap=document.getElementById('demoreel-wrap');if(wrap)wrap.onclick=null;
+  var wrap=document.getElementById('demoreel-wrap');if(wrap){wrap.style.background='transparent';wrap.onclick=null;}
 }
 
 var prevPage = 'works';
