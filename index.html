@@ -33,6 +33,25 @@ body{
   height:100vh;
 }
 
+
+/* ── CONFIDENTIAL CARD ── */
+.wg-nda-bg{position:relative;display:flex;align-items:center;justify-content:center;}
+.wg-nda-info{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:flex-start;justify-content:flex-end;
+  padding:1.4rem 1.5rem;gap:.4rem;z-index:1;
+}
+.wg-nda-label{font-size:.48rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.45);font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;}
+.wg-nda-cat{font-size:.82rem;font-weight:700;color:rgba(255,255,255,.85);font-family:'Helvetica Neue',Helvetica,sans-serif;letter-spacing:-.01em;line-height:1.2;}
+.wg-nda-year{font-size:.55rem;color:rgba(255,255,255,.4);letter-spacing:.08em;}
+
+/* ── DEMOREEL ── */
+.demoreel-wrap{width:100%;border-radius:12px;overflow:hidden;background:#1c1c1c;aspect-ratio:16/9;position:relative;cursor:none;}
+.demoreel-locked{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;}
+.demoreel-lock-ic{font-size:1.6rem;line-height:1;}
+.demoreel-lock-txt{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);font-family:'Helvetica Neue',Helvetica,sans-serif;}
+.demoreel-inner{position:relative;width:100%;height:100%;}
+.demoreel-inner iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
 /* ── CURSOR ── */
 #cur{
   width:16px;height:16px;
@@ -174,24 +193,23 @@ header {
   z-index: 200;
   background: var(--bg);
   border-bottom: .5px solid var(--line);
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  padding: 0;
-  height: 64px;
+  height: 72px;
 }
 .header-inner {
   width: 100%;
+  height: 100%;
   max-width: 1220px;
-  padding: 0 2.5rem;
+  margin: 0 auto;
+  padding: 0 3rem;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo {
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
-  font-size: .65rem;
+  font-size:0.9375rem;
   letter-spacing: .28em;
   text-transform: uppercase;
   color: var(--ink);
@@ -205,12 +223,11 @@ nav {
   display: flex;
   gap: 2.2rem;
   align-items: center;
-  margin-left: auto; /* ★ここが重要！左側を最大に空けて右へ寄せます */
   flex-shrink: 0;
 }
 
 nav a{
-  font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
+  font-size:0.875rem;letter-spacing:.18em;text-transform:uppercase;
   color:var(--ink);text-decoration:none;cursor:none;
   transition:color .2s;
   font-family:'Helvetica Neue',Helvetica,sans-serif;
@@ -222,7 +239,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 #app {
   position: fixed;
   inset: 0;
-  top: 64px;
+  top: 72px;
 }
 
 .page{
@@ -278,7 +295,7 @@ nav a:hover,nav a.active{color:var(--acc);}
   opacity:.14;
 }
 .top-hero-ph-hint{
-  font-size:.48rem;letter-spacing:.32em;text-transform:uppercase;
+  font-size:0.6rem;letter-spacing:.32em;text-transform:uppercase;
   color:var(--ink);font-weight:400;
 }
 
@@ -290,7 +307,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 }
 .tht-left{}
 .th-tag{
-  font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;
+  font-size:0.625rem;letter-spacing:.3em;text-transform:uppercase;
   color:var(--mid);margin-bottom:1.1rem;
   display:flex;align-items:center;gap:.8rem;
 }
@@ -308,12 +325,12 @@ nav a:hover,nav a.active{color:var(--acc);}
   margin-left:3rem;
 }
 .tht-desc{
-  font-size:.7rem;color:var(--mid);line-height:2;
+  font-size:0.875rem;color:var(--mid);line-height:2;
   max-width:260px;text-align:left;margin-bottom:1.6rem;
 }
 .th-cta{
   display:inline-flex;align-items:center;gap:1rem;
-  font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+  font-size:0.975rem;letter-spacing:.22em;text-transform:uppercase;
   color:var(--ink);cursor:none;background:none;border:none;
   font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;
   transition:gap .3s;
@@ -339,7 +356,7 @@ nav a:hover,nav a.active{color:var(--acc);}
   border:none;
   flex-shrink:0;
 }
-.tfb-copy{font-size:.55rem;color:var(--mid);letter-spacing:.04em;}
+.tfb-copy{font-size:0.6875rem;color:var(--mid);letter-spacing:.04em;}
 .tfb-links{display:flex;gap:1.4rem;align-items:center;}
 .tfb-links a{
   color:var(--mid);text-decoration:none;cursor:none;
@@ -377,10 +394,10 @@ nav a:hover,nav a.active{color:var(--acc);}
   padding:0 2.5rem;
   display:flex;justify-content:space-between;align-items:center;
 }
-.wt-label{font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;}
+.wt-label{font-size:0.6875rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;}
 .wt-filters{display:flex;gap:2rem;}
 .wf{
-  font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;
+  font-size:0.6875rem;letter-spacing:.18em;text-transform:uppercase;
   color:var(--faint);cursor:none;transition:color .2s;
 }
 .wf.active,.wf:hover{color:var(--acc);}
@@ -439,7 +456,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 }
 .wg-item:hover .wg-overlay{opacity:1;transform:translateY(0);}
 .wg-ov-cat{
-  font-size:.48rem;letter-spacing:.24em;text-transform:uppercase;
+  font-size:0.6rem;letter-spacing:.24em;text-transform:uppercase;
   color:rgba(255,255,255,.65);margin-bottom:.4rem;
 }
 .wg-ov-title{
@@ -448,11 +465,11 @@ nav a:hover,nav a.active{color:var(--acc);}
   margin-bottom:.5rem;
 }
 .wg-ov-desc{
-  font-size:.68rem;color:rgba(255,255,255,.75);line-height:1.85;
+  font-size:0.85rem;color:rgba(255,255,255,.75);line-height:1.85;
   margin-bottom:.8rem;
 }
 .wg-ov-year{
-  font-size:.5rem;color:rgba(255,255,255,.5);letter-spacing:.1em;
+  font-size:0.625rem;color:rgba(255,255,255,.5);letter-spacing:.1em;
 }
 
 /* Lock overlay */
@@ -462,19 +479,20 @@ nav a:hover,nav a.active{color:var(--acc);}
   border-radius:16px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:.6rem;
-  background:rgba(245,245,243,.8);
-  backdrop-filter:blur(3px);
+  background:transparent;
   transition:background .3s;
+  z-index:2;
 }
 .wg-item.locked:hover .wg-lock{
-  background:rgba(5,40,242,.85);
+  background:rgba(5,40,242,.6);
 }
-.wg-lock-ic{font-size:1.2rem;line-height:1;transition:filter .3s;}
+.wg-lock-ic{font-size:1.2rem;line-height:1;transition:opacity .3s;opacity:0;}
+.wg-item.locked:hover .wg-lock-ic{opacity:1;}
 .wg-lock-txt{
-  font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--mid);transition:color .3s;
+  font-size:0.6rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.9);transition:color .3s;
 }
-.wg-item.locked:hover .wg-lock-txt{color:rgba(255,255,255,.8);}
+.wg-item.locked:hover .wg-lock-txt{color:rgba(255,255,255,.9);}
 
 /* No bottom meta text */
 .wg-meta{display:none;}
@@ -491,7 +509,7 @@ nav a:hover,nav a.active{color:var(--acc);}
   max-width:800px;
 }
 .as-label{
-  font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);
+  font-size:0.6875rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);
   margin-bottom:2.5rem;display:flex;align-items:center;gap:.8rem;
   font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;
 }
@@ -503,7 +521,7 @@ nav a:hover,nav a.active{color:var(--acc);}
   margin-bottom:2.5rem;
 }
 .as-h2 em{font-style:normal;color:var(--ink);font-weight:700;}
-.as-p{font-size:.83rem;color:var(--ink);line-height:2.2;max-width:580px;}
+.as-p{font-size:1.0375rem;color:var(--ink);line-height:2.2;max-width:580px;}
 
 /* ── ABOUT FULL-WIDTH IMAGE ── */
 .about-hero-img{
@@ -525,7 +543,7 @@ nav a:hover,nav a.active{color:var(--acc);}
   display:flex;align-items:center;justify-content:center;
 }
 .aph-inner{display:flex;flex-direction:column;align-items:center;gap:1rem;opacity:.14;}
-.aph-hint{font-size:.48rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);}
+.aph-hint{font-size:0.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);}
 
 /* subheading */
 .profile-subheading{
@@ -539,7 +557,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 .career-row{
   display:grid;grid-template-columns:150px 1fr;
   padding:.85rem 0;
-  font-size:.76rem;gap:1.5rem;
+  font-size:0.95rem;gap:1.5rem;
   transition:padding-left .22s;cursor:default;
 }
 .career-row:hover{padding-left:.35rem;}
@@ -552,7 +570,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 /* ── SKILLS CHIPS ── */
 .sk-g{margin-top:2rem;display:flex;flex-direction:column;gap:1.6rem;}
 .sk-block{}
-.sk-block-label{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:.9rem;font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;}
+.sk-block-label{font-size:0.625rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:.9rem;font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;}
 .sk-icon-row{display:flex;flex-wrap:wrap;gap:.5rem;}
 
 /* Domain chips — fully rounded pill */
@@ -560,7 +578,7 @@ nav a:hover,nav a.active{color:var(--acc);}
   display:inline-flex;align-items:center;gap:.45rem;
   padding:.38rem .75rem;
   border:.5px solid var(--line);
-  font-size:.68rem;color:var(--ink);
+  font-size:0.85rem;color:var(--ink);
   white-space:nowrap;
   transition:border-color .2s,color .2s;
 }
@@ -586,7 +604,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 }
 .detail-back{
   display:inline-flex;align-items:center;gap:.6rem;
-  font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;
+  font-size:0.725rem;letter-spacing:.18em;text-transform:uppercase;
   font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;
   color:var(--ink);cursor:none;background:none;border:none;
   transition:gap .25s,color .2s;
@@ -602,7 +620,7 @@ nav a:hover,nav a.active{color:var(--acc);}
   border-left:.5px solid currentColor;border-bottom:.5px solid currentColor;
   transform:rotate(45deg);
 }
-.detail-num{font-size:.55rem;letter-spacing:.18em;color:var(--faint);}
+.detail-num{font-size:0.6875rem;letter-spacing:.18em;color:var(--faint);}
 
 .detail-hero{
   width:100%;height:70vh;min-height:480px;
@@ -624,18 +642,35 @@ nav a:hover,nav a.active{color:var(--acc);}
   padding:3rem;border-right:.5px solid var(--line);
 }
 .detail-meta-row{padding:.8rem 0;border-bottom:.5px solid var(--line);}
-.detail-meta-key{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:.3rem;font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;}
-.detail-meta-val{font-size:.82rem;color:var(--ink);}
+.detail-meta-key{font-size:0.625rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:.3rem;font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;}
+.detail-meta-val{font-size:1.025rem;color:var(--ink);}
 .detail-title-block{
   padding:3rem;
 }
 .detail-title{
   font-family:'Helvetica Neue',Helvetica,'M PLUS 1p',sans-serif;
-  font-size:clamp(2rem,4vw,4rem);font-weight:700;
+  font-size:clamp(.9rem,1.6vw,1.6rem);font-weight:700;
   line-height:1.05;letter-spacing:-.03em;margin-bottom:1.8rem;
 }
-.detail-desc{font-size:.88rem;color:var(--ink);line-height:2.2;max-width:600px;}
+.detail-desc{font-size:1.1rem;color:var(--ink);line-height:2.2;max-width:600px;}
 
+.detail-youtube{
+  margin-top:1.6rem;width:100%;max-width:660px;
+}
+.detail-youtube-inner{
+  position:relative;width:100%;aspect-ratio:16/9;
+  background:#000;border-radius:8px;overflow:hidden;
+}
+.detail-youtube-inner iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:none;
+}
+.detail-youtube-link{
+  display:inline-flex;align-items:center;gap:.5rem;
+  margin-top:.7rem;font-size:.55rem;letter-spacing:.12em;
+  color:var(--mid);text-decoration:none;cursor:none;transition:color .2s;
+}
+.detail-youtube-link:hover{color:var(--acc);}
+.detail-youtube-link svg{flex-shrink:0;}
 .detail-gallery{
   display:grid;grid-template-columns:1fr 1fr;
   border-bottom:.5px solid var(--line);
@@ -660,10 +695,11 @@ nav a:hover,nav a.active{color:var(--acc);}
 }
 .ab-col:first-child{border-right:.5px solid var(--line);}
 .ab-section-label{
-  font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;
+  font-size:0.975rem;letter-spacing:.12em;text-transform:uppercase;
   color:var(--acc);margin-bottom:1.8rem;
   padding-bottom:1rem;
   font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;
+  line-height:1.1;
 }
 
 /* Profile */
@@ -671,17 +707,17 @@ nav a:hover,nav a.active{color:var(--acc);}
   font-family:'Helvetica Neue',Helvetica,'M PLUS 1p',sans-serif;
   font-size:1.3rem;font-weight:700;margin-bottom:.6rem;letter-spacing:-.01em;
 }
-.profile-role{font-size:.68rem;color:var(--ink);letter-spacing:.08em;margin-bottom:1.4rem;}
-.profile-p{font-size:.8rem;color:var(--ink);line-height:2.1;margin-bottom:1rem;}
+.profile-role{font-size:0.85rem;color:var(--ink);letter-spacing:.08em;margin-bottom:1.4rem;}
+.profile-p{font-size:1rem;color:var(--ink);line-height:2.1;margin-bottom:1rem;}
 
-.cr-p{color:var(--ink);font-size:.68rem;padding-top:.05rem;}
+.cr-p{color:var(--ink);font-size:0.85rem;padding-top:.05rem;}
 .cr-r{color:var(--ink);line-height:1.7;}
 
 /* Skills — compact icon rows */
 .sk-g{margin-top:2rem;display:flex;flex-direction:column;gap:1.6rem;}
 .sk-block{}
 .sk-block-label{
-  font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;
+  font-size:0.625rem;letter-spacing:.2em;text-transform:uppercase;
   color:var(--faint);margin-bottom:.9rem;
 }
 .sk-icon-row{
@@ -691,7 +727,7 @@ nav a:hover,nav a.active{color:var(--acc);}
   display:inline-flex;align-items:center;gap:.45rem;
   padding:.38rem .75rem;
   border:.5px solid var(--line);
-  font-size:.68rem;color:var(--ink);
+  font-size:0.85rem;color:var(--ink);
   white-space:nowrap;
   transition:border-color .2s,color .2s;
 }
@@ -733,9 +769,9 @@ nav a:hover,nav a.active{color:var(--acc);}
   transition:background .2s;
 }
 .ct-sns-item:hover .ct-sns-icon{background:var(--acc-light);}
-.ct-sns-label{font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);}
+.ct-sns-label{font-size:0.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);}
 .ct-base{
-  font-size:.7rem;color:var(--mid);letter-spacing:.04em;
+  font-size:0.875rem;color:var(--mid);letter-spacing:.04em;
   margin-bottom:4rem;
   text-align:center;
 }
@@ -744,7 +780,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 }
 .cf-box-g{margin-bottom:1.2rem;}
 .cf-box-g label{
-  display:block;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;
+  display:block;font-size:0.625rem;letter-spacing:.2em;text-transform:uppercase;
   color:var(--acc);margin-bottom:.5rem;
   font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;
 }
@@ -755,7 +791,7 @@ nav a:hover,nav a.active{color:var(--acc);}
   border-radius:8px;
   padding:.85rem 1rem;
   font-family:'Helvetica Neue',Helvetica,'M PLUS 1p',sans-serif;
-  font-size:.82rem;font-weight:300;
+  font-size:1.025rem;font-weight:300;
   color:var(--ink);outline:none;
   transition:background .2s,box-shadow .2s;
 }
@@ -767,7 +803,7 @@ nav a:hover,nav a.active{color:var(--acc);}
 .cf-box-g textarea{resize:none;height:120px;}
 .cf-btn{
   display:inline-flex;align-items:center;gap:.8rem;
-  font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  font-size:0.725rem;letter-spacing:.2em;text-transform:uppercase;
   color:var(--ink);cursor:none;background:none;border:none;
   font-family:'Helvetica Neue',Helvetica,sans-serif;font-weight:700;
   margin-top:.8rem;transition:gap .3s,color .2s;
@@ -783,7 +819,7 @@ nav a:hover,nav a.active{color:var(--acc);}
   display:flex;justify-content:space-between;align-items:center;
   padding:1.5rem 2.5rem;
 }
-.pf-copy{font-size:.55rem;color:var(--faint);letter-spacing:.08em;}
+.pf-copy{font-size:0.6875rem;color:var(--faint);letter-spacing:.08em;}
 .pf-links{display:flex;gap:1.4rem;align-items:center;}
 .pf-links a{
   color:var(--faint);text-decoration:none;cursor:none;
@@ -803,12 +839,12 @@ nav a:hover,nav a.active{color:var(--acc);}
   border:.5px solid var(--line);max-width:320px;width:90%;
   background:var(--bg);
 }
-.lm-ttl{font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:1.5rem;}
+.lm-ttl{font-size:0.6875rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:1.5rem;}
 .lm-h3{font-family:'Helvetica Neue',Helvetica,sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:.8rem;}
-.lm-p{font-size:.73rem;color:var(--mid);line-height:2;margin-bottom:2rem;}
+.lm-p{font-size:0.9125rem;color:var(--mid);line-height:2;margin-bottom:2rem;}
 .lm-in{
   width:100%;border:none;border-bottom:.5px solid var(--line);
-  padding:.6rem 0;font-size:.85rem;font-family:'Helvetica Neue',Helvetica,sans-serif;
+  padding:.6rem 0;font-size:1.0625rem;font-family:'Helvetica Neue',Helvetica,sans-serif;
   font-weight:300;outline:none;text-align:center;letter-spacing:.4em;
   background:transparent;color:var(--ink);transition:border-color .2s;
 }
@@ -816,14 +852,14 @@ nav a:hover,nav a.active{color:var(--acc);}
 .lm-in::placeholder{color:var(--faint);}
 .lm-btn{
   margin-top:2rem;display:inline-flex;align-items:center;gap:.8rem;
-  font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  font-size:0.725rem;letter-spacing:.2em;text-transform:uppercase;
   cursor:none;background:none;border:none;font-family:inherit;
   font-weight:400;color:var(--ink);transition:gap .3s;
 }
 .lm-btn:hover{gap:1.2rem;}
-.lm-err{font-size:.6rem;color:#a04040;margin-top:.8rem;display:none;}
+.lm-err{font-size:0.75rem;color:#a04040;margin-top:.8rem;display:none;}
 .lm-close{
-  margin-top:1.6rem;font-size:.5rem;color:var(--faint);
+  margin-top:1.6rem;font-size:0.625rem;color:var(--faint);
   cursor:none;display:block;letter-spacing:.15em;text-transform:uppercase;transition:color .2s;
 }
 .lm-close:hover{color:var(--ink);}
@@ -929,10 +965,10 @@ nav a:hover,nav a.active{color:var(--acc);}
   <div class="top-footer-bar">
     <span class="tfb-copy">© 2026 YUMIKA. All rights reserved.</span>
     <div class="tfb-links">
-      <a href="https://twitter.com/yumika_zzzp" target="_blank" aria-label="X (Twitter)">
+      <a href="https://x.com/yumika_zp" target="_blank" aria-label="X (Twitter)">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
       </a>
-      <a href="https://instagram.com/yumika_zzzp" target="_blank" aria-label="Instagram">
+      <a href="https://www.instagram.com/yumika_zp/?hl=ja" target="_blank" aria-label="Instagram">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
     </div>
@@ -950,7 +986,7 @@ nav a:hover,nav a.active{color:var(--acc);}
     <div class="wt-filters">
       <span class="wf active" onclick="filterW(this,'all')">All</span>
       <span class="wf" onclick="filterW(this,'public')">Public</span>
-      <span class="wf" onclick="filterW(this,'nda')">NDA</span>
+      <span class="wf" onclick="filterW(this,'nda')">Confidential</span>
     </div>
     </div><!-- /works-toolbar-inner -->
   </div>
@@ -958,50 +994,17 @@ nav a:hover,nav a.active{color:var(--acc);}
   <div class="works-grid" id="works-grid">
 
     <!-- Sanityから動的に読み込まれます -->
-    <div id="sanity-works-loading" style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--faint);font-size:.75rem;letter-spacing:.1em;">Loading...</div>
-
-    <!-- NDA 01 -->
-    <div class="wg-item locked rv" data-cat="nda" data-id="nda01" onclick="openLock(this)">
-      <div class="wg-img glock">
-        <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none" opacity=".15"><circle cx="45" cy="45" r="36" stroke="#111110" stroke-width=".5"/></svg></div>
-        <div class="wg-lock">
-          <div class="wg-lock-ic">🔒</div>
-          <span class="wg-lock-txt">NDA · Password Required</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- NDA 02 -->
-    <div class="wg-item locked rv d1" data-cat="nda" data-id="nda02" onclick="openLock(this)">
-      <div class="wg-img glock">
-        <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none" opacity=".15"><rect x="14" y="14" width="62" height="62" stroke="#111110" stroke-width=".5" transform="rotate(22 45 45)"/></svg></div>
-        <div class="wg-lock">
-          <div class="wg-lock-ic">🔒</div>
-          <span class="wg-lock-txt">NDA · Password Required</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- NDA 03 -->
-    <div class="wg-item locked rv d2" data-cat="nda" data-id="nda03" onclick="openLock(this)">
-      <div class="wg-img glock">
-        <div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none" opacity=".15"><polygon points="45,9 81,72 9,72" stroke="#111110" stroke-width=".5"/></svg></div>
-        <div class="wg-lock">
-          <div class="wg-lock-ic">🔒</div>
-          <span class="wg-lock-txt">NDA · Password Required</span>
-        </div>
-      </div>
-    </div>
+    <div id="sanity-works-loading" style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--faint);font-size:0.9375rem;letter-spacing:.1em;">Loading...</div>
 
   </div><!-- /works-grid -->
 
   <div class="page-footer">
     <span class="pf-copy">© 2026 YUMIKA. All rights reserved.</span>
     <div class="pf-links">
-      <a href="https://twitter.com/yumika_zzzp" target="_blank" aria-label="X (Twitter)">
+      <a href="https://x.com/yumika_zp" target="_blank" aria-label="X (Twitter)">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
       </a>
-      <a href="https://instagram.com/yumika_zzzp" target="_blank" aria-label="Instagram">
+      <a href="https://www.instagram.com/yumika_zp/?hl=ja" target="_blank" aria-label="Instagram">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
     </div>
@@ -1045,7 +1048,19 @@ nav a:hover,nav a.active{color:var(--acc);}
       </div>
     </div>
     <div class="ab-col">
-      <p class="ab-section-label rv">Skills &amp; Tools</p>
+      <p class="ab-section-label rv">Demoreel</p>
+      <div id="demoreel-wrap" class="demoreel-wrap rv d1">
+        <div id="demoreel-locked" class="demoreel-locked" style="display:none;">
+          <div class="demoreel-lock-ic">🔒</div>
+          <span class="demoreel-lock-txt">Confidential · Password Required</span>
+        </div>
+        <div id="demoreel-player" style="display:none;">
+          <div class="demoreel-inner">
+            <iframe id="demoreel-iframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+          </div>
+        </div>
+      </div>
+      <p class="ab-section-label rv" style="margin-top:3rem;">Skills &amp; Tools</p>
       <div class="sk-g rv d1">
 
         <!-- Domain first -->
@@ -1053,16 +1068,8 @@ nav a:hover,nav a.active{color:var(--acc);}
           <p class="sk-block-label">Domain</p>
           <div class="sk-icon-row">
             <span class="sk-chip sk-chip-round">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-              3D CG
-            </span>
-            <span class="sk-chip sk-chip-round">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-              インスタレーション
-            </span>
-            <span class="sk-chip sk-chip-round">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
-              MV制作・ディレクション
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
+              ディレクション
             </span>
             <span class="sk-chip sk-chip-round">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
@@ -1070,7 +1077,19 @@ nav a:hover,nav a.active{color:var(--acc);}
             </span>
             <span class="sk-chip sk-chip-round">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-              企画立案・進行管理
+              企画立案
+            </span>
+            <span class="sk-chip sk-chip-round">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+              インスタレーション
+            </span>
+            <span class="sk-chip sk-chip-round">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              3DCG
+            </span>
+            <span class="sk-chip sk-chip-round">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+              MV・LIVE
             </span>
           </div>
         </div>
@@ -1094,14 +1113,6 @@ nav a:hover,nav a.active{color:var(--acc);}
                 <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-size="11" font-family="Helvetica Neue,Helvetica,sans-serif" font-weight="700">RS</text>
               </svg>
               Redshift
-            </span>
-            <!-- Octane -->
-            <span class="sk-chip sk-chip-software" title="Octane Render">
-              <svg width="22" height="22" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                <rect width="40" height="40" rx="8" fill="#222"/>
-                <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#FF6B35" font-size="9.5" font-family="Helvetica Neue,Helvetica,sans-serif" font-weight="700">OCT</text>
-              </svg>
-              Octane
             </span>
             <!-- X-Particles -->
             <span class="sk-chip sk-chip-software" title="X-Particles">
@@ -1145,10 +1156,10 @@ nav a:hover,nav a.active{color:var(--acc);}
   <div class="page-footer">
     <span class="pf-copy">© 2026 YUMIKA. All rights reserved.</span>
     <div class="pf-links">
-      <a href="https://twitter.com/yumika_zzzp" target="_blank" aria-label="X (Twitter)">
+      <a href="https://x.com/yumika_zp" target="_blank" aria-label="X (Twitter)">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
       </a>
-      <a href="https://instagram.com/yumika_zzzp" target="_blank" aria-label="Instagram">
+      <a href="https://www.instagram.com/yumika_zp/?hl=ja" target="_blank" aria-label="Instagram">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
     </div>
@@ -1164,13 +1175,13 @@ nav a:hover,nav a.active{color:var(--acc);}
     <h1 class="ct-title rv">CONTACT</h1>
 
     <div class="ct-sns rv d1">
-      <a class="ct-sns-item" href="https://twitter.com/yumika_zzzp" target="_blank">
+      <a class="ct-sns-item" href="https://x.com/yumika_zp" target="_blank">
         <div class="ct-sns-icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
         </div>
         <span class="ct-sns-label">X</span>
       </a>
-      <a class="ct-sns-item" href="https://instagram.com/yumika_zzzp" target="_blank">
+      <a class="ct-sns-item" href="https://www.instagram.com/yumika_zp/?hl=ja" target="_blank">
         <div class="ct-sns-icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         </div>
@@ -1180,8 +1191,10 @@ nav a:hover,nav a.active{color:var(--acc);}
 
     <p class="ct-base rv d2">Tokyo, Japan</p>
 
+    <p class="ct-desc rv d2">お仕事のご相談、パスワード発行などお気軽にお問い合わせください。</p>
+
     <div class="ct-form-wrap rv d3">
-      <form onsubmit="handleSubmit(event)">
+      <form id="contact-form">
         <div class="cf-box-g"><label>Name</label><input type="text" name="name" placeholder="Your Name" required></div>
         <div class="cf-box-g"><label>Email</label><input type="email" name="email" placeholder="mail@example.com" required></div>
         <div class="cf-box-g"><label>Message</label><textarea name="message" placeholder="プロジェクトの概要、ご要望など…" required></textarea></div>
@@ -1193,10 +1206,10 @@ nav a:hover,nav a.active{color:var(--acc);}
   <div class="page-footer">
     <span class="pf-copy">© 2026 YUMIKA. All rights reserved.</span>
     <div class="pf-links">
-      <a href="https://twitter.com/yumika_zzzp" target="_blank" aria-label="X (Twitter)">
+      <a href="https://x.com/yumika_zp" target="_blank" aria-label="X (Twitter)">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
       </a>
-      <a href="https://instagram.com/yumika_zzzp" target="_blank" aria-label="Instagram">
+      <a href="https://www.instagram.com/yumika_zp/?hl=ja" target="_blank" aria-label="Instagram">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
     </div>
@@ -1243,6 +1256,15 @@ nav a:hover,nav a.active{color:var(--acc);}
     <div class="detail-title-block">
       <h2 class="detail-title" id="detail-title">Project Title</h2>
       <p class="detail-desc" id="detail-desc">プロジェクトの詳細説明がここに入ります。</p>
+      <div class="detail-youtube" id="detail-youtube" style="display:none;">
+        <div class="detail-youtube-inner">
+          <iframe id="detail-youtube-iframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+        </div>
+        <a class="detail-youtube-link" id="detail-youtube-extlink" href="#" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+          YouTubeで見る
+        </a>
+      </div>
     </div>
   </div>
 
@@ -1264,10 +1286,10 @@ nav a:hover,nav a.active{color:var(--acc);}
   <div class="page-footer">
     <span class="pf-copy">© 2026 YUMIKA. All rights reserved.</span>
     <div class="pf-links">
-      <a href="https://twitter.com/yumika_zzzp" target="_blank" aria-label="X (Twitter)">
+      <a href="https://x.com/yumika_zp" target="_blank" aria-label="X (Twitter)">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
       </a>
-      <a href="https://instagram.com/yumika_zzzp" target="_blank" aria-label="Instagram">
+      <a href="https://www.instagram.com/yumika_zp/?hl=ja" target="_blank" aria-label="Instagram">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
     </div>
@@ -1280,8 +1302,8 @@ nav a:hover,nav a.active{color:var(--acc);}
 <div class="lock-overlay" id="lock-overlay">
   <div class="lock-modal">
     <div class="lm-ttl">Password Required</div>
-    <h3 class="lm-h3">NDA Protected</h3>
-    <p class="lm-p">このプロジェクトはNDA対象です。<br>パスワードをお持ちの方のみご覧いただけます。</p>
+    <h3 class="lm-h3">Confidential</h3>
+    <p class="lm-p">このプロジェクトは非公開です。<br>パスワードをお持ちの方のみご覧いただけます。</p>
     <input class="lm-in" type="password" id="lock-pw" placeholder="· · · · · ·" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter')checkPass()">
     <div class="lm-err" id="lock-err">パスワードが正しくありません</div>
     <button class="lm-btn" onclick="checkPass()">Enter <span class="arr" style="height:.5px;background:var(--ink);"></span></button>
@@ -1430,9 +1452,6 @@ function renderWorks(works) {
   var loading = document.getElementById('sanity-works-loading');
   if (loading) loading.remove();
 
-  // NDAカードの前に挿入するため、最初のNDAカードを探す
-  var ndaCard = grid.querySelector('.locked');
-
   works.forEach(function(work, i) {
     var num = String(i + 1).padStart(2, '0');
     var total = String(works.length).padStart(2, '0');
@@ -1448,35 +1467,59 @@ function renderWorks(works) {
       title: work.title || '',
       desc: work.description || '',
       bg: 'g' + ((i % 9) + 1),
-      imageUrl: work.image ? getSanityImageUrl(work.image.asset._ref) : null
+      imageUrl: work.image ? getSanityImageUrl(work.image.asset._ref) : null,
+      mainImageUrl: work.mainImage ? getSanityImageUrl(work.mainImage.asset._ref) : null,
+      galleryImageUrls: (work.galleryImages || []).map(function(img){
+        return img && img.asset ? getSanityImageUrl(img.asset._ref) : null;
+      }).filter(Boolean),
+      youtubeUrl: work.youtubeUrl || '',
+      isNda: !!work.isNda,
+      ndaColor: work.ndaColor || '#1c1c1c'
     };
 
     var item = document.createElement('div');
-    item.className = 'wg-item rv';
-    item.dataset.cat = 'public';
-    item.dataset.id = id;
-    item.setAttribute('onclick', 'openDetail(this)');
+    var isNda = !!work.isNda;
+    var ndaColor = work.ndaColor || '#1c1c1c';
 
-    var imgHtml = work.image
-      ? '<img src="' + getSanityImageUrl(work.image.asset._ref) + '" alt="' + (work.title || '') + '" loading="lazy">'
-      : '<div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none"><circle cx="45" cy="45" r="36" stroke="#111110" stroke-width=".5"/><circle cx="45" cy="45" r="24" stroke="#111110" stroke-width=".5"/></svg></div>';
-
-    item.innerHTML =
-      '<div class="wg-img g' + ((i % 9) + 1) + '">' + imgHtml + '</div>' +
-      '<div class="wg-overlay">' +
-        '<div class="wg-ov-cat">' + (work.category || '') + '</div>' +
-        '<div class="wg-ov-title">' + (work.title || '') + '</div>' +
-        '<div class="wg-ov-desc">' + (work.description || '').substring(0, 60) + '...</div>' +
-        '<div class="wg-ov-year">' + (work.year || '') + '</div>' +
-      '</div>';
-
-    // NDAカードの前に挿入
-    if (ndaCard) {
-      grid.insertBefore(item, ndaCard);
+    if (isNda) {
+      item.className = 'wg-item locked rv';
+      item.dataset.cat = 'nda';
+      item.dataset.id = id;
+      item.setAttribute('onclick', 'openLock(this)');
+      item.innerHTML =
+        '<div class="wg-img wg-nda-bg" style="background:' + ndaColor + ';">' +
+          '<div class="wg-nda-info">' +
+            '<span class="wg-nda-label">Confidential</span>' +
+            (work.category ? '<span class="wg-nda-cat">' + work.category + '</span>' : '') +
+            (work.year ? '<span class="wg-nda-year">' + work.year + '</span>' : '') +
+          '</div>' +
+          '<div class="wg-lock">' +
+            '<div class="wg-lock-ic">🔒</div>' +
+            '<span class="wg-lock-txt">Confidential</span>' +
+          '</div>' +
+        '</div>';
     } else {
-      grid.appendChild(item);
+      var imgHtml = work.image
+        ? '<img src="' + getSanityImageUrl(work.image.asset._ref) + '" alt="' + (work.title || '') + '" loading="lazy">'
+        : '<div class="wg-ph"><svg width="90" height="90" viewBox="0 0 90 90" fill="none"><circle cx="45" cy="45" r="36" stroke="#111110" stroke-width=".5"/><circle cx="45" cy="45" r="24" stroke="#111110" stroke-width=".5"/></svg></div>';
+      item.className = 'wg-item rv';
+      item.dataset.cat = 'public';
+      item.dataset.id = id;
+      item.setAttribute('onclick', 'openDetail(this)');
+      item.innerHTML =
+        '<div class="wg-img g' + ((i % 9) + 1) + '">' + imgHtml + '</div>' +
+        '<div class="wg-overlay">' +
+          '<div class="wg-ov-cat">' + (work.category || '') + '</div>' +
+          '<div class="wg-ov-title">' + (work.title || '') + '</div>' +
+          '<div class="wg-ov-desc">' + (work.description || '').substring(0, 60) + '...</div>' +
+          '<div class="wg-ov-year">' + (work.year || '') + '</div>' +
+        '</div>';
     }
+
+    grid.appendChild(item);
   });
+  // ループ完了後に認証済みならサムネ表示
+  if(isNdaAuthed()){ revealNdaThumbnails(); }
 
   // rv アニメーション再適用
   setTimeout(function() {
@@ -1487,13 +1530,13 @@ function renderWorks(works) {
 }
 
 function fetchWorks() {
-  var query = encodeURIComponent('*[_type == "work"] | order(order asc) {_id, title, category, year, role, tools, description, isNda, order, image}');
+  var query = encodeURIComponent('*[_type == "work"] | order(order asc) {_id, title, category, year, role, tools, description, isNda, ndaColor, order, image, mainImage, galleryImages, youtubeUrl}');
   var url = SANITY_API_URL + '?query=' + query;
 
   fetch(url)
     .then(function(res) { return res.json(); })
     .then(function(data) {
-      var works = (data.result || []).filter(function(w) { return !w.isNda; });
+      var works = data.result || [];
       renderWorks(works);
     })
     .catch(function(err) {
@@ -1505,6 +1548,37 @@ function fetchWorks() {
 
 // ページ読み込み時に実行
 fetchWorks();
+fetchSiteSettings();
+function fetchSiteSettings(){
+  var q=encodeURIComponent('*[_type=="siteSettings"][0]{topImage,aboutImage,demoreelUrl,demoreelColor}');
+  fetch(SANITY_API_URL+'?query='+q).then(function(r){return r.json();}).then(function(d){
+    var s=d.result||{};
+    if(s.topImage&&s.topImage.asset){var url=getSanityImageUrl(s.topImage.asset._ref);var hero=document.querySelector('.top-hero');if(hero){var ph=hero.querySelector('.top-hero-ph');if(ph)ph.style.display='none';var img=document.createElement('img');img.className='top-hero-img';img.src=url;img.alt='YUMIKA';img.onload=function(){img.classList.add('loaded');};hero.insertBefore(img,hero.firstChild);}}
+    if(s.aboutImage&&s.aboutImage.asset){var url2=getSanityImageUrl(s.aboutImage.asset._ref);var ah=document.querySelector('.about-hero-img');if(ah){var aph=ah.querySelector('.about-img-ph');if(aph)aph.style.display='none';var ai=document.createElement('img');ai.src=url2;ai.alt='YUMIKA';ah.insertBefore(ai,ah.firstChild);}}
+    if(s.demoreelUrl){window.DEMOREEL_URL=s.demoreelUrl;var bg=s.demoreelColor||'#1c1c1c';var wrap=document.getElementById('demoreel-wrap');if(wrap)wrap.style.background=bg;initDemoreel();}
+  }).catch(function(e){console.warn(e);});
+}
+function initDemoreel(){
+  var locked=document.getElementById('demoreel-locked');
+  var player=document.getElementById('demoreel-player');
+  if(!locked||!player)return;
+  if(isNdaAuthed()){showDemoreelPlayer();}
+  else{
+    locked.style.display='';
+    var wrap=document.getElementById('demoreel-wrap');
+    if(wrap)wrap.onclick=function(){_pendingDemoreelUnlock=true;document.getElementById('lock-overlay').classList.add('show');document.getElementById('lock-pw').value='';document.getElementById('lock-err').style.display='none';setTimeout(function(){document.getElementById('lock-pw').focus();},120);};
+  }
+}
+function showDemoreelPlayer(){
+  var locked=document.getElementById('demoreel-locked');
+  var player=document.getElementById('demoreel-player');
+  var iframe=document.getElementById('demoreel-iframe');
+  if(!player||!iframe)return;
+  if(locked)locked.style.display='none';
+  if(window.DEMOREEL_URL){var ytId=window.DEMOREEL_URL.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([-\w]{11})(?:[?&]|$)/);if(ytId)iframe.src='https://www.youtube.com/embed/'+ytId[1]+'?rel=0';}
+  player.style.display='';
+  var wrap=document.getElementById('demoreel-wrap');if(wrap)wrap.onclick=null;
+}
 
 var prevPage = 'works';
 
@@ -1520,11 +1594,29 @@ function openDetail(el) {
   document.getElementById('detail-role').textContent  = data.role;
   document.getElementById('detail-tools').textContent = data.tools;
   document.getElementById('detail-title').textContent = data.title;
-  document.getElementById('detail-desc').textContent  = data.desc;
-
-  // Update hero placeholder background class
+  document.getElementById('detail-desc').innerHTML = (data.desc || '').replace(/\n/g, '<br>');
   var ph = document.getElementById('detail-hero-ph');
-  ph.className = 'detail-hero-ph ' + data.bg;
+  if (data.mainImageUrl) {
+    ph.innerHTML = '<img src="' + data.mainImageUrl + '" alt="' + data.title + '" style="width:100%;height:100%;object-fit:cover;display:block;">';
+    ph.className = 'detail-hero-ph';
+  } else {
+    ph.innerHTML = '<svg width="200" height="140" viewBox="0 0 200 140" fill="none"><circle cx="100" cy="70" r="55" stroke="#111110" stroke-width=".4"/><circle cx="100" cy="70" r="35" stroke="#111110" stroke-width=".4"/><line x1="30" y1="70" x2="170" y2="70" stroke="#111110" stroke-width=".4"/><line x1="100" y1="15" x2="100" y2="125" stroke="#111110" stroke-width=".4"/></svg>';
+    ph.className = 'detail-hero-ph ' + data.bg;
+  }
+  var galCells = document.querySelectorAll('.detail-gal-cell');
+  var galPhs = ['<svg width="100" height="70" viewBox="0 0 100 70" fill="none"><rect x="5" y="5" width="90" height="60" stroke="#111110" stroke-width=".4"/></svg>','<svg width="100" height="70" viewBox="0 0 100 70" fill="none"><circle cx="50" cy="35" r="28" stroke="#111110" stroke-width=".4"/></svg>','<svg width="100" height="70" viewBox="0 0 100 70" fill="none"><polygon points="50,5 95,65 5,65" stroke="#111110" stroke-width=".4"/></svg>','<svg width="100" height="70" viewBox="0 0 100 70" fill="none"><path d="M5 35 Q25 5 50 35 Q75 65 95 35" stroke="#111110" stroke-width=".4" fill="none"/></svg>'];
+  galCells.forEach(function(cell, i) {
+    var imgUrl = data.galleryImageUrls && data.galleryImageUrls[i];
+    cell.innerHTML = imgUrl ? '<img src="' + imgUrl + '" style="width:100%;height:100%;object-fit:cover;display:block;">' : '<div class="detail-gal-ph">' + galPhs[i] + '</div>';
+  });
+  var ytWrap = document.getElementById('detail-youtube');
+  var ytIframe = document.getElementById('detail-youtube-iframe');
+  var ytLink = document.getElementById('detail-youtube-extlink');
+  if (data.youtubeUrl) {
+    var ytId = data.youtubeUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([-\w]{11})(?:[?&]|$)/);
+    if (ytId) { ytIframe.src = 'https://www.youtube.com/embed/' + ytId[1] + '?rel=0'; ytLink.href = data.youtubeUrl; ytWrap.style.display = ''; }
+    else { ytWrap.style.display = 'none'; ytIframe.src = ''; }
+  } else { ytWrap.style.display = 'none'; ytIframe.src = ''; }
 
   prevPage = current;
   goTo('detail');
@@ -1548,10 +1640,17 @@ var obs=new IntersectionObserver(function(entries){
 document.querySelectorAll('#page-works .rv,#page-about .rv,#page-contact .rv').forEach(function(el){obs.observe(el);});
 
 // ── LOCK ──
-var PASS='yumika2026';
+var PASS_HASH='89206df5be080475963766b07c85d1b6b32f52945debe45bfdba3d445e8ee8fa';
+var NDA_SESSION_KEY='nda_auth';
+var NDA_EXPIRE_MS=30*60*1000;
+function isNdaAuthed(){try{var d=JSON.parse(sessionStorage.getItem(NDA_SESSION_KEY));return d&&(Date.now()-d.t<NDA_EXPIRE_MS);}catch(e){return false;}}
+function setNdaAuth(){sessionStorage.setItem(NDA_SESSION_KEY,JSON.stringify({t:Date.now()}));}
+async function hashStr(str){var buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');}
 var _pendingNdaEl = null;
+var _pendingDemoreelUnlock = false;
 function openLock(el){
   _pendingNdaEl = el || null;
+  if(isNdaAuthed()){if(_pendingNdaEl){openDetail(_pendingNdaEl);_pendingNdaEl=null;}return;}
   document.getElementById('lock-overlay').classList.add('show');
   document.getElementById('lock-pw').value='';
   document.getElementById('lock-err').style.display='none';
@@ -1560,16 +1659,50 @@ function openLock(el){
 function closeLock(){document.getElementById('lock-overlay').classList.remove('show');}
 function checkPass(){
   var pw = document.getElementById('lock-pw').value.trim();
-  if(pw===PASS){
-    closeLock();
-    if(_pendingNdaEl){openDetail(_pendingNdaEl);_pendingNdaEl=null;}
-  }
-  else{document.getElementById('lock-err').style.display='block';document.getElementById('lock-pw').value='';}
+  hashStr(pw).then(function(hash){
+    if(hash===PASS_HASH){
+      setNdaAuth();
+      revealNdaThumbnails();
+      if(_pendingDemoreelUnlock){ showDemoreelPlayer(); _pendingDemoreelUnlock=false; }
+      closeLock();
+      if(_pendingNdaEl){openDetail(_pendingNdaEl);_pendingNdaEl=null;}
+    } else {
+      document.getElementById('lock-err').style.display='block';
+      document.getElementById('lock-pw').value='';
+    }
+  });
 }
 document.getElementById('lock-overlay').addEventListener('click',function(e){if(e.target===this)closeLock();});
 
+function revealNdaThumbnails(){
+  document.querySelectorAll('.wg-item.locked').forEach(function(item){
+    var id = item.dataset.id;
+    var data = PROJECTS[id];
+    if(!data || !data.imageUrl) return;
+    var imgWrap = item.querySelector('.wg-img');
+    if(!imgWrap) return;
+    imgWrap.style.background = '';
+    var info = imgWrap.querySelector('.wg-nda-info');
+    if(info) info.style.display = 'none';
+    if(!imgWrap.querySelector('img')){
+      var img = document.createElement('img');
+      img.src = data.imageUrl;
+      img.alt = data.title || '';
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+      imgWrap.insertBefore(img, imgWrap.firstChild);
+    }
+  });
+}
+
 // ── FORM ──
-function handleSubmit(e){e.preventDefault();alert('送信機能は別途設定が必要です。');}
+document.getElementById('contact-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  var btn = this.querySelector('.cf-btn');
+  btn.textContent = 'Sending...'; btn.disabled = true;
+  fetch('https://formspree.io/f/mykopgzv', {method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}})
+    .then(function(r){ if(r.ok){ document.getElementById('contact-form').innerHTML='<p style="font-size:.82rem;color:var(--ink);line-height:2.2;text-align:center;padding:2rem 0;">送信しました！<br>お返事までしばらくお待ちください。</p>'; } else { btn.textContent='Send Message'; btn.disabled=false; alert('送信に失敗しました。'); } })
+    .catch(function(){ btn.textContent='Send Message'; btn.disabled=false; alert('送信に失敗しました。'); });
+});
 </script>
 
 
