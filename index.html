@@ -1640,7 +1640,7 @@ var obs=new IntersectionObserver(function(entries){
 document.querySelectorAll('#page-works .rv,#page-about .rv,#page-contact .rv').forEach(function(el){obs.observe(el);});
 
 // ── LOCK ──
-var PASS_HASH='89206df5be080475963766b07c85d1b6b32f52945debe45bfdba3d445e8ee8fa';
+var PASS_HASH='814cfc6fdd261a88cdd52c02df152530b0eadfd4c02d084619af8cb30c739bfd';
 var NDA_SESSION_KEY='nda_auth';
 var NDA_EXPIRE_MS=30*60*1000;
 function isNdaAuthed(){try{var d=JSON.parse(sessionStorage.getItem(NDA_SESSION_KEY));return d&&(Date.now()-d.t<NDA_EXPIRE_MS);}catch(e){return false;}}
